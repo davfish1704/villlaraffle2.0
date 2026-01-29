@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win a $1M Villa in Bali | Luxury Raffle</title>
+    <meta name="description" content="Enter to win a guaranteed 5-bedroom villa in Bali worth $1,000,000. One winner. Transparent draw. Secure payment.">
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Premium Typography: Playfair Display + DM Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- 
+═══════════════════════════════════════════════════════════════
+ASSET MAP — PLACE THESE FILES IN /assets/ FOLDER
+═══════════════════════════════════════════════════════════════
+
+HERO SECTION:
+  hero_bg.jpg (or .webp) → Main hero background (2000x1200px recommended)
+
+GALLERY - EXTERIOR (6 images):
+  ext_1.jpg → Front view
+  ext_2.jpg → Pool area
+  ext_3.jpg → Garden/grounds
+  ext_4.jpg → Sunset/evening shot
+  ext_5.jpg → Aerial view
+  ext_6.jpg → Entrance
+
+GALLERY - INTERIOR (10 images):
+  int_1.jpg → Living room
+  int_2.jpg → Kitchen
+  int_3.jpg → Master bedroom
+  int_4.jpg → Bedroom 2
+  int_5.jpg → Bedroom 3
+  int_6.jpg → Bathroom/spa
+  int_7.jpg → Dining area
+  int_8.jpg → Entertainment room
+  int_9.jpg → Terrace/balcony
+  int_10.jpg → Detail shot (art/decor)
+
+OPTIONAL:
+  floorplan_1.png → Ground floor plan
+  floorplan_2.png → Upper floor plan
+
+Each gallery tile displays its filename label so you know which image goes where.
+-->
+
+    <!-- Section A: HERO -->
+    <section class="hero" id="hero">
+        <div class="hero__video-bg">
+            <!-- Placeholder for hero_bg.jpg - replace with actual image -->
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="container hero__content">
+            <div class="hero__badge">Limited Opportunity</div>
+            
+            <h1 class="hero__headline">
+                <span class="hero__headline-line">GUARANTEED:</span>
+                <span class="hero__headline-line hero__headline-line--main">1 Winner Gets a</span>
+                <span class="hero__headline-line hero__headline-line--highlight">$1,000,000 Villa in Bali</span>
+            </h1>
+            
+            <p class="hero__subline">
+                5 bedrooms. Private pool. Your family's escape to paradise—or a seven-figure asset. Your Bali era starts here.
+            </p>
+            
+            <div class="hero__cta-group">
+                <button class="btn btn--primary btn--large" id="hero-cta">Enter Now</button>
+                <a href="#odds" class="btn btn--secondary btn--large">Check Your Odds</a>
+            </div>
+            
+            <div class="hero__trust-bar">
+                <div class="trust-item">
+                    <svg class="trust-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 1L12.5 6.5L18.5 7.5L14 12L15 18L10 15L5 18L6 12L1.5 7.5L7.5 6.5L10 1Z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Secure Payment</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L3 6V10C3 14.5 6 17.5 10 18C14 17.5 17 14.5 17 10V6L10 2Z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Verified Draw</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M7 10L9 12L13 8" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Transparent Rules</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <text x="10" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">18+</text>
+                    </svg>
+                    <span>Adults Only</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero__scroll-indicator">
+            <span>Scroll to explore</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section B: VISUAL PROOF (Gallery) -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See Your Future Villa</h2>
+                <p class="section-subtitle">Every angle. Every detail. This could be yours.</p>
+            </div>
+            
+            <div class="gallery__tabs">
+                <button class="gallery__tab gallery__tab--active" data-tab="exterior">Exterior</button>
+                <button class="gallery__tab" data-tab="interior">Interior</button>
+                <button class="gallery__tab" data-tab="floorplan">Floor Plans</button>
+            </div>
+            
+            <!-- Exterior Gallery -->
+            <div class="gallery__grid gallery__grid--active" data-content="exterior">
+                <div class="gallery__item" data-image="assets/ext_1.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_1</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/ext_2.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_2</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/ext_3.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_3</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/ext_4.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_4</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/ext_5.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_5</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/ext_6.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">ext_6</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interior Gallery -->
+            <div class="gallery__grid" data-content="interior">
+                <div class="gallery__item" data-image="assets/int_1.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_1</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_2.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_2</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_3.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_3</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_4.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_4</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_5.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_5</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_6.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_6</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_7.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_7</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_8.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_8</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_9.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_9</span>
+                    </div>
+                </div>
+                <div class="gallery__item" data-image="assets/int_10.jpg">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">int_10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floor Plans -->
+            <div class="gallery__grid gallery__grid--floorplan" data-content="floorplan">
+                <div class="gallery__item gallery__item--large" data-image="assets/floorplan_1.png">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">floorplan_1</span>
+                    </div>
+                </div>
+                <div class="gallery__item gallery__item--large" data-image="assets/floorplan_2.png">
+                    <div class="gallery__placeholder">
+                        <span class="gallery__label">floorplan_2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section C: THE DREAM -->
+    <section class="dream" id="dream">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">One Winner. One Villa. No Cap.</h2>
+                <p class="section-subtitle">What you do with it? That's your call.</p>
+            </div>
+            
+            <div class="dream__grid">
+                <div class="dream__card">
+                    <div class="dream__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L8 12V20C8 30 15 38 24 40C33 38 40 30 40 20V12L24 4Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 24L22 28L30 20" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="dream__title">Move In</h3>
+                    <p class="dream__text">Pack your life. Start fresh. Wake up to ocean views and total freedom. This is your escape plan.</p>
+                </div>
+                
+                <div class="dream__card dream__card--highlight">
+                    <div class="dream__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 12V24L32 28" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="dream__title">Vacation Base</h3>
+                    <p class="dream__text">Your family's private resort. Host friends. Create memories. Live the lifestyle you deserve.</p>
+                </div>
+                
+                <div class="dream__card">
+                    <div class="dream__icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 36L24 8L36 36H12Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 28H30" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="dream__title">Hold or Sell</h3>
+                    <p class="dream__text">Seven figures in your hands. Invest it. Flip it. The status and upside are all yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section D: HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three steps to change your life.</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step__number">01</div>
+                    <h3 class="step__title">Choose Your Tickets</h3>
+                    <p class="step__text">Select 1, 5, 10 tickets—or enter a custom amount. More tickets = better odds.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step__number">02</div>
+                    <h3 class="step__title">Secure Payment</h3>
+                    <p class="step__text">Pay safely via Stripe. Bank-level encryption. Your info stays protected.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step__number">03</div>
+                    <h3 class="step__title">Get Your Tickets</h3>
+                    <p class="step__text">Tickets emailed instantly after payment confirmation. You're in.</p>
+                </div>
+            </div>
+            
+            <div class="legal-note">
+                <p><strong>No Purchase Necessary:</strong> For free entry method and complete rules, see official terms. Void where prohibited.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section E: ODDS / TRANSPARENCY -->
+    <section class="odds" id="odds">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Know Your Odds</h2>
+                <p class="section-subtitle">Full transparency. No hidden math.</p>
+            </div>
+            
+            <div class="odds__calculator">
+                <div class="odds__formula">
+                    <div class="odds__formula-visual">
+                        <div class="odds__formula-part">
+                            <label for="your-tickets">Your Tickets</label>
+                            <input type="number" id="your-tickets" value="5" min="1" max="1000">
+                        </div>
+                        <div class="odds__formula-divider">/</div>
+                        <div class="odds__formula-part">
+                            <label for="total-sold">Total Sold</label>
+                            <input type="number" id="total-sold" value="50000" min="1" readonly>
+                        </div>
+                        <div class="odds__formula-equals">=</div>
+                        <div class="odds__formula-result">
+                            <span class="odds__result-label">Your Odds</span>
+                            <span class="odds__result-value" id="odds-result">1 in 10,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="odds__disclaimer">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 6V11" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="10" cy="14" r="0.5" fill="currentColor"/>
+                    </svg>
+                    <p>Odds depend on total entries sold. This is an estimate based on current sales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section F: TIMELINE -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Timeline</h2>
+                <p class="section-subtitle">Here's when it all goes down.</p>
+            </div>
+            
+            <div class="timeline__track">
+                <div class="timeline__item">
+                    <div class="timeline__marker timeline__marker--complete"></div>
+                    <div class="timeline__content">
+                        <h3 class="timeline__title">Launch</h3>
+                        <p class="timeline__date">January 2026</p>
+                        <p class="timeline__desc">Raffle opens. Tickets on sale.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline__item">
+                    <div class="timeline__marker timeline__marker--active"></div>
+                    <div class="timeline__content">
+                        <h3 class="timeline__title">Sales Period</h3>
+                        <p class="timeline__date">Now – Dec 31, 2026</p>
+                        <p class="timeline__desc">Ends when all tickets sell out or at year-end—whichever comes first.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline__item">
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__content">
+                        <h3 class="timeline__title">Draw Date</h3>
+                        <p class="timeline__date">TBD (within 14 days after close)</p>
+                        <p class="timeline__desc">Winner selected via verified random draw. Livestreamed.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline__item">
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__content">
+                        <h3 class="timeline__title">Winner Announcement</h3>
+                        <p class="timeline__date">Same day as draw</p>
+                        <p class="timeline__desc">Public announcement. Winner contacted directly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section G: WINNERS / PROOF -->
+    <section class="social-proof" id="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Past Winners</h2>
+                <p class="section-subtitle">Real people. Real wins. (Placeholder examples)</p>
+            </div>
+            
+            <div class="winners__carousel">
+                <button class="carousel__nav carousel__nav--prev" aria-label="Previous winner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                
+                <div class="winners__track">
+                    <div class="winner__card">
+                        <div class="winner__image-placeholder">JD</div>
+                        <h3 class="winner__name">John D.</h3>
+                        <p class="winner__prize">Villa in Thailand</p>
+                        <p class="winner__quote">"Still can't believe it. Changed everything."</p>
+                    </div>
+                    
+                    <div class="winner__card">
+                        <div class="winner__image-placeholder">SM</div>
+                        <h3 class="winner__name">Sarah M.</h3>
+                        <p class="winner__prize">Luxury Apartment in Dubai</p>
+                        <p class="winner__quote">"Best decision I ever made."</p>
+                    </div>
+                    
+                    <div class="winner__card">
+                        <div class="winner__image-placeholder">RK</div>
+                        <h3 class="winner__name">Ryan K.</h3>
+                        <p class="winner__prize">Beachfront Condo</p>
+                        <p class="winner__quote">"Worth every ticket. No regrets."</p>
+                    </div>
+                </div>
+                
+                <button class="carousel__nav carousel__nav--next" aria-label="Next winner">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="press-logos">
+                <h3 class="press-logos__title">As Seen In</h3>
+                <div class="press-logos__grid">
+                    <div class="press-logo">Publication 1</div>
+                    <div class="press-logo">Publication 2</div>
+                    <div class="press-logo">Publication 3</div>
+                    <div class="press-logo">Publication 4</div>
+                    <div class="press-logo">Publication 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section H: FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Questions?</h2>
+                <p class="section-subtitle">We've got answers.</p>
+            </div>
+            
+            <div class="faq__list">
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Is the draw guaranteed to happen?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Yes. One winner will be selected no matter what. If we don't sell out, the draw still happens with all tickets sold. You're always in the running.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>How is the winner selected?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Via verified random number generation, overseen by an independent third party. The process will be livestreamed for full transparency.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>What happens if tickets don't sell out?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>The draw proceeds with all tickets sold. Better odds for you. The villa is guaranteed to one winner regardless of total sales.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>What about taxes and legal transfer?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Winner is responsible for any applicable taxes and transfer fees in their jurisdiction. We'll provide full documentation and guidance. Consult a tax professional for your specific situation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Can I get a refund?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>All ticket sales are final. No refunds once payment is confirmed. Please review all terms before purchasing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question" aria-expanded="false">
+                        <span>How do I receive my tickets?</span>
+                        <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Tickets are emailed to you immediately after payment confirmation. Check your inbox (and spam folder). Each ticket has a unique ID for the draw.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section I: FINAL CTA -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <div class="final-cta__content">
+                <h2 class="final-cta__headline">One Winner. One Villa. One Chance.</h2>
+                <p class="final-cta__subline">This is the sign you've been waiting for. Enter now.</p>
+                <button class="btn btn--primary btn--large" id="final-cta-btn">Enter Now</button>
+                
+                <div class="payment-icons">
+                    <div class="payment-icon">Visa</div>
+                    <div class="payment-icon">Mastercard</div>
+                    <div class="payment-icon">Amex</div>
+                    <div class="payment-icon">Apple Pay</div>
+                    <div class="payment-icon">Google Pay</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3>Villa Raffle</h3>
+                    <p>Win big. Live bold.</p>
+                </div>
+                
+                <div class="footer__links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#responsible">Responsible Play</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__disclaimer">
+                    <p><strong>18+ Only.</strong> Must be 18 years or older to enter. Void where prohibited. Please play responsibly.</p>
+                    <p class="footer__copyright">© 2026 Villa Raffle. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TICKET SELECTION MODAL -->
+    <div class="modal" id="ticket-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+            
+            <h2 id="modal-title" class="modal__title">Choose Your Tickets</h2>
+            <p class="modal__subtitle">More tickets = better odds of winning</p>
+            
+            <div class="ticket-selector">
+                <div class="ticket-options">
+                    <button class="ticket-option" data-tickets="1">
+                        <span class="ticket-option__count">1</span>
+                        <span class="ticket-option__label">Ticket</span>
+                        <span class="ticket-option__price" data-price-per="50">$50</span>
+                    </button>
+                    <button class="ticket-option ticket-option--popular" data-tickets="5">
+                        <div class="ticket-option__badge">Popular</div>
+                        <span class="ticket-option__count">5</span>
+                        <span class="ticket-option__label">Tickets</span>
+                        <span class="ticket-option__price" data-price-per="50">$250</span>
+                    </button>
+                    <button class="ticket-option" data-tickets="10">
+                        <span class="ticket-option__count">10</span>
+                        <span class="ticket-option__label">Tickets</span>
+                        <span class="ticket-option__price" data-price-per="50">$500</span>
+                    </button>
+                </div>
+                
+                <div class="ticket-custom">
+                    <label for="custom-tickets">Or enter a custom amount:</label>
+                    <input type="number" id="custom-tickets" min="1" max="1000" placeholder="e.g., 25">
+                </div>
+            </div>
+            
+            <div class="ticket-summary">
+                <div class="ticket-summary__row">
+                    <span>Selected Tickets:</span>
+                    <span id="selected-count">1</span>
+                </div>
+                <div class="ticket-summary__row ticket-summary__total">
+                    <span>Total:</span>
+                    <span id="total-price">$50</span>
+                </div>
+            </div>
+            
+            <!--
+            ═══════════════════════════════════════════════════════════════
+            CONFIG REQUIRED: STRIPE INTEGRATION
+            ═══════════════════════════════════════════════════════════════
+            
+            CURRENT: Static payment link (cannot dynamically change amount)
+            Payment Link: https://buy.stripe.com/cNi7sL9xtfGR5X532Y2Fa05
+            
+            OPTIONS TO IMPLEMENT DYNAMIC PRICING:
+            
+            Option 1 (Recommended): Server-side Checkout Session
+            - Create a backend endpoint (e.g., /api/create-checkout)
+            - Use Stripe Checkout Sessions API to dynamically set amount
+            - Pass ticket count via POST request
+            - Redirect to session.url
+            
+            Option 2: Multiple Payment Links
+            - Create separate Stripe payment links for common bundles:
+              * 1 ticket = Link A
+              * 5 tickets = Link B
+              * 10 tickets = Link C
+              * etc.
+            - Switch links based on selection
+            
+            CURRENT IMPLEMENTATION: Uses provided static link as fallback
+            ═══════════════════════════════════════════════════════════════
+            -->
+            <a href="https://buy.stripe.com/cNi7sL9xtfGR5X532Y2Fa05" class="btn btn--primary btn--large btn--full" id="checkout-btn" target="_self">
+                Checkout on Stripe
+            </a>
+            
+            <p class="modal__note">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 5V9" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="8" cy="11" r="0.5" fill="currentColor"/>
+                </svg>
+                Your tickets will be emailed after payment confirmation.
+            </p>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL (for gallery images) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <div class="lightbox__overlay"></div>
+        <button class="lightbox__close" aria-label="Close lightbox">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M24 8L8 24M8 8L24 24" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M20 24L12 16L20 8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Next image">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M12 24L20 16L12 8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        <div class="lightbox__content">
+            <img src="" alt="" id="lightbox-image">
+            <p class="lightbox__label" id="lightbox-label"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
