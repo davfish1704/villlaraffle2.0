@@ -873,6 +873,85 @@ img {
     font-weight: 600;
 }
 
+/* === TRUSTPILOT CAROUSEL (HERO) === */
+.trustpilot-carousel {
+    margin-top: var(--spacing-xl);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.trustpilot-carousel--hidden {
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+}
+
+.trustpilot-carousel__track {
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    transition: transform var(--transition-base);
+    will-change: transform;
+    touch-action: pan-y;
+}
+
+.trustpilot-carousel__card {
+    min-width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.trustpilot-carousel__quote {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.trustpilot-carousel__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.trustpilot-carousel__stars {
+    color: #00b67a;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.trustpilot-carousel__dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+    justify-content: center;
+}
+
+.trustpilot-carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.trustpilot-carousel__dot.is-active {
+    background: #f5c400;
+    transform: scale(1.1);
 /* === FLOATING TRUSTPILOT BANNER === */
 .trustpilot-float {
     position: fixed;
@@ -1453,6 +1532,14 @@ img {
 
     .modal__content {
         padding: var(--spacing-lg);
+    }
+
+    .trustpilot-carousel {
+        margin-top: var(--spacing-lg);
+    }
+
+    .trustpilot-carousel__card {
+        padding: 1rem 1.2rem;
     }
     
     .footer__content {

@@ -397,6 +397,85 @@ function initCarousel() {
     });
 }
 
+// === TRUSTPILOT HERO CAROUSEL ===
+function initTrustpilotCarousel() {
+    const carousel = document.querySelector('.trustpilot-carousel');
+    const heroSection = document.getElementById('hero');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.trustpilot-carousel__track');
+    const cards = Array.from(carousel.querySelectorAll('.trustpilot-carousel__card'));
+    const dots = Array.from(carousel.querySelectorAll('.trustpilot-carousel__dot'));
+
+    if (!track || cards.length === 0) return;
+
+    let activeIndex = 0;
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    const updateSlide = () => {
+        track.style.transform = `translateX(-${activeIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+            const isActive = index === activeIndex;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-pressed', String(isActive));
+        });
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            activeIndex = index;
+            updateSlide();
+        });
+    });
+
+    const handlePointerDown = (event) => {
+        startX = event.clientX;
+        currentX = startX;
+        isDragging = true;
+        track.setPointerCapture?.(event.pointerId);
+    };
+
+    const handlePointerMove = (event) => {
+        if (!isDragging) return;
+        currentX = event.clientX;
+    };
+
+    const handlePointerUp = (event) => {
+        if (!isDragging) return;
+        const diff = currentX - startX;
+        if (Math.abs(diff) > 40) {
+            if (diff < 0 && activeIndex < cards.length - 1) {
+                activeIndex += 1;
+            }
+            if (diff > 0 && activeIndex > 0) {
+                activeIndex -= 1;
+            }
+        }
+        track.releasePointerCapture?.(event.pointerId);
+        updateSlide();
+        isDragging = false;
+    };
+
+    track.addEventListener('pointerdown', handlePointerDown);
+    track.addEventListener('pointermove', handlePointerMove);
+    track.addEventListener('pointerup', handlePointerUp);
+    track.addEventListener('pointercancel', handlePointerUp);
+    track.addEventListener('pointerleave', handlePointerUp);
+
+    if (heroSection && 'IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                carousel.classList.toggle('trustpilot-carousel--hidden', !entry.isIntersecting);
+            });
+        }, { threshold: 0.15 });
+        heroObserver.observe(heroSection);
+    }
+
+    updateSlide();
+}
+
 // === ANALYTICS TRACKING (Placeholder) ===
 function trackEvent(eventName, eventData = {}) {
     // TODO: Integrate with your analytics provider (GA4, Mixpanel, etc.)
@@ -453,6 +532,7 @@ function init() {
     initLightboxEvents();
     initScrollAnimations();
     initCarousel();
+    initTrustpilotCarousel();
     initAnalytics();
     
     console.log('✓ All features loaded');
