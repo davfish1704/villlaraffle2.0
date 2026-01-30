@@ -145,6 +145,7 @@ img {
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -872,6 +873,87 @@ img {
     font-weight: 600;
 }
 
+/* === TRUSTPILOT CAROUSEL (HERO) === */
+.trustpilot-carousel {
+    margin-top: var(--spacing-xl);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.trustpilot-carousel--hidden {
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+}
+
+.trustpilot-carousel__track {
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    transition: transform var(--transition-base);
+    will-change: transform;
+    touch-action: pan-y;
+}
+
+.trustpilot-carousel__card {
+    min-width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.trustpilot-carousel__quote {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.trustpilot-carousel__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.trustpilot-carousel__stars {
+    color: #00b67a;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.trustpilot-carousel__dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+    justify-content: center;
+}
+
+.trustpilot-carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.trustpilot-carousel__dot.is-active {
+    background: #f5c400;
+    transform: scale(1.1);
+}
+
 /* === FOOTER === */
 .footer {
     padding: var(--spacing-xl) 0;
@@ -1261,18 +1343,75 @@ img {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .hero__content {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero__cta-group {
+        gap: var(--spacing-sm);
+    }
+
+    .gallery__grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .gallery__grid--floorplan {
+        grid-template-columns: 1fr;
+    }
+
+    .dream__card,
+    .winner__card {
+        padding: var(--spacing-lg);
+    }
+
+    .odds__formula {
+        padding: var(--spacing-lg);
+    }
+}
+
 @media (max-width: 768px) {
+    .section-header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .hero__headline-line--highlight {
+        font-size: clamp(2.4rem, 9vw, 4rem);
+    }
+
+    .hero__subline {
+        margin-bottom: var(--spacing-lg);
+    }
+
     .hero__cta-group {
         flex-direction: column;
+    }
+
+    .hero__cta-group .btn {
+        width: 100%;
     }
     
     .hero__trust-bar {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
+
+    .hero__scroll-indicator {
+        display: none;
+    }
     
     .gallery__tabs {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .gallery__tab {
+        width: 100%;
+        padding: 0.75rem 1.25rem;
     }
     
     .gallery__grid {
@@ -1290,19 +1429,131 @@ img {
     .odds__formula-visual {
         flex-direction: column;
     }
+
+    .odds__formula-part input {
+        width: 100%;
+        max-width: 260px;
+    }
     
     .timeline__track::before {
         left: 8px;
+    }
+
+    .timeline__item {
+        gap: var(--spacing-md);
     }
     
     .timeline__marker {
         width: 24px;
         height: 24px;
     }
+
+    .faq__question {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1.05rem;
+    }
+
+    .modal__content {
+        padding: var(--spacing-lg);
+    }
+
+    .trustpilot-carousel {
+        margin-top: var(--spacing-lg);
+    }
+
+    .trustpilot-carousel__card {
+        padding: 1rem 1.2rem;
+    }
     
     .footer__content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero__badge {
+        font-size: 0.75rem;
+    }
+
+    .hero__headline-line:nth-child(1) {
+        letter-spacing: 0.08em;
+    }
+
+    .hero__subline {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+    }
+
+    .btn--large {
+        padding: 1rem 1.5rem;
+    }
+
+    .gallery,
+    .dream,
+    .how-it-works,
+    .odds,
+    .timeline,
+    .social-proof,
+    .faq,
+    .final-cta,
+    .footer {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .odds__formula {
+        padding: var(--spacing-md);
+    }
+
+    .odds__formula-part input {
+        max-width: 100%;
+        font-size: 1.6rem;
+    }
+
+    .odds__formula-divider,
+    .odds__formula-equals {
+        font-size: 2rem;
+    }
+
+    .odds__result-value {
+        font-size: 2rem;
+    }
+
+    .timeline__track::before {
+        left: 6px;
+    }
+
+    .timeline__marker {
+        width: 20px;
+        height: 20px;
+    }
+
+    .press-logos__grid {
+        gap: var(--spacing-md);
+    }
+
+    .press-logo {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .lightbox__close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox__nav {
+        width: 44px;
+        height: 44px;
     }
 }
 
