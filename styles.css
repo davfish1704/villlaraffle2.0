@@ -890,27 +890,6 @@ img {
     gap: 1.2rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     z-index: 900;
-    transition: opacity var(--transition-base), transform var(--transition-base);
-}
-
-.trustpilot-float--hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-
-.trustpilot-float__carousel {
-    overflow: hidden;
-}
-
-.trustpilot-float__track {
-    display: flex;
-    transition: transform var(--transition-base);
-    will-change: transform;
-}
-
-.trustpilot-float__slide {
-    min-width: 100%;
 }
 
 .trustpilot-float__quote {
@@ -971,28 +950,6 @@ img {
     gap: 0.25rem;
     color: #00b67a;
     font-size: 1.1rem;
-}
-
-.trustpilot-float__dots {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
-    justify-content: center;
-}
-
-.trustpilot-float__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    border: none;
-    background: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: background var(--transition-base), transform var(--transition-base);
-}
-
-.trustpilot-float__dot.is-active {
-    background: #f5c400;
-    transform: scale(1.1);
 }
 
 /* === FOOTER === */
@@ -1587,28 +1544,6 @@ img {
     .lightbox__nav {
         width: 44px;
         height: 44px;
-    }
-
-    .trustpilot-float {
-        right: 1rem;
-        left: 1rem;
-        bottom: 1rem;
-        width: auto;
-        padding: 1.2rem 1.4rem;
-    }
-
-    .trustpilot-float__avatar {
-        width: 48px;
-        height: 48px;
-    }
-
-    .trustpilot-float__message p {
-        font-size: 0.95rem;
-    }
-
-    .trustpilot-float__brand {
-        flex-direction: column;
-        align-items: flex-start;
     }
 }
 
