@@ -397,6 +397,78 @@ function initCarousel() {
     });
 }
 
+// === TRUSTPILOT FLOATING CAROUSEL ===
+function initTrustpilotFloat() {
+    const float = document.querySelector('.trustpilot-float');
+    if (!float) return;
+
+    const track = float.querySelector('.trustpilot-float__track');
+    const slides = Array.from(float.querySelectorAll('.trustpilot-float__slide'));
+    const dots = Array.from(float.querySelectorAll('.trustpilot-float__dot'));
+
+    if (!track || slides.length === 0) return;
+
+    let activeIndex = 0;
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let scrollTimeout;
+
+    const updateSlide = () => {
+        track.style.transform = `translateX(-${activeIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+            const isActive = index === activeIndex;
+            dot.classList.toggle('is-active', isActive);
+            dot.setAttribute('aria-pressed', String(isActive));
+        });
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            activeIndex = index;
+            updateSlide();
+        });
+    });
+
+    track.addEventListener('touchstart', (event) => {
+        startX = event.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (event) => {
+        if (!isDragging) return;
+        currentX = event.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        const diff = currentX - startX;
+        if (Math.abs(diff) > 40) {
+            if (diff < 0 && activeIndex < slides.length - 1) {
+                activeIndex += 1;
+            }
+            if (diff > 0 && activeIndex > 0) {
+                activeIndex -= 1;
+            }
+        }
+        updateSlide();
+        isDragging = false;
+    });
+
+    const handleScroll = () => {
+        float.classList.add('trustpilot-float--hidden');
+        window.clearTimeout(scrollTimeout);
+        scrollTimeout = window.setTimeout(() => {
+            float.classList.remove('trustpilot-float--hidden');
+        }, 1200);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    updateSlide();
+}
+
 // === ANALYTICS TRACKING (Placeholder) ===
 function trackEvent(eventName, eventData = {}) {
     // TODO: Integrate with your analytics provider (GA4, Mixpanel, etc.)
@@ -453,6 +525,7 @@ function init() {
     initLightboxEvents();
     initScrollAnimations();
     initCarousel();
+    initTrustpilotFloat();
     initAnalytics();
     
     console.log('✓ All features loaded');
