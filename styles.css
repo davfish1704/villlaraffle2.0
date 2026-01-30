@@ -1545,28 +1545,6 @@ img {
         width: 44px;
         height: 44px;
     }
-
-    .trustpilot-float {
-        right: 1rem;
-        left: 1rem;
-        bottom: 1rem;
-        width: auto;
-        padding: 1.2rem 1.4rem;
-    }
-
-    .trustpilot-float__avatar {
-        width: 48px;
-        height: 48px;
-    }
-
-    .trustpilot-float__message p {
-        font-size: 0.95rem;
-    }
-
-    .trustpilot-float__brand {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 }
 
 /* === FOCUS STATES (Accessibility) === */
