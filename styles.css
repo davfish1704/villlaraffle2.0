@@ -1540,3 +1540,21 @@ img {
     outline: 3px solid var(--color-secondary);
     outline-offset: 3px;
 }
+/* === Trustpilot Text Replacement === */
+
+.trustpilot-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+
+    color: #00B67A;
+}
+
+.trustpilot-text__bold {
+    font-weight: 700;
+}
