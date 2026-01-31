@@ -5,8 +5,8 @@
 
 // === CONFIGURATION ===
 const CONFIG = {
-    PRICE_PER_TICKET: 50, // Change this to update ticket price globally
-    TOTAL_TICKETS_AVAILABLE: 50000, // Update with actual total
+    PRICE_PER_TICKET: 30, // Updated to $30 per ticket
+    TOTAL_TICKETS_AVAILABLE: 200000, // Updated to 200,000 total tickets
     STRIPE_PAYMENT_LINK: 'https://buy.stripe.com/cNi7sL9xtfGR5X532Y2Fa05'
 };
 
