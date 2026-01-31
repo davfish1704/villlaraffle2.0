@@ -145,7 +145,6 @@ img {
 .hero {
     position: relative;
     min-height: 100vh;
-    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -284,6 +283,181 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     animation: bounce 2s infinite;
+}
+
+/* === TRUSTPILOT CAROUSEL === */
+.trustpilot-carousel {
+    margin-top: var(--spacing-xl);
+    opacity: 1;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    animation: fadeInUp 1s ease-out 1.6s backwards;
+}
+
+.trustpilot-carousel.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.trustpilot-carousel__container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.trustpilot-carousel__track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: pan-y pinch-zoom;
+    cursor: grab;
+}
+
+.trustpilot-carousel__track:active {
+    cursor: grabbing;
+}
+
+.trustpilot-carousel__track.no-transition {
+    transition: none;
+}
+
+/* Testimonial Card (Trustpilot Style) */
+.testimonial-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card__stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.star-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.testimonial-card__quote {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    min-height: 3em;
+}
+
+.testimonial-card__author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+/* Dot Indicators */
+.trustpilot-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.dot--active {
+    background: var(--color-secondary);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .trustpilot-carousel__container {
+        padding: 0 0.5rem;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+        padding: 1.25rem;
+    }
+    
+    .testimonial-card__quote {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .trustpilot-carousel {
+        margin-top: var(--spacing-lg);
+    }
+    
+    .testimonial-card {
+        flex: 0 0 240px;
+        min-width: 240px;
+        padding: 1rem;
+    }
+    
+    .testimonial-card__quote {
+        font-size: 0.85rem;
+        min-height: 2.5em;
+    }
+    
+    .testimonial-card__author {
+        font-size: 0.8rem;
+    }
+    
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .dot--active {
+        width: 20px;
+    }
+}
+
+/* Prevent text selection during drag */
+.trustpilot-carousel__track.no-transition * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* Improve touch scrolling on iOS */
+.trustpilot-carousel__container {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent pull-to-refresh on mobile during carousel interaction */
+.trustpilot-carousel__track {
+    overscroll-behavior-x: contain;
 }
 
 /* === GALLERY SECTION === */
@@ -873,164 +1047,6 @@ img {
     font-weight: 600;
 }
 
-/* === TRUSTPILOT CAROUSEL (HERO) === */
-.trustpilot-carousel {
-    margin-top: var(--spacing-xl);
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity var(--transition-base), transform var(--transition-base);
-}
-
-.trustpilot-carousel--hidden {
-    opacity: 0;
-    transform: translateY(16px);
-    pointer-events: none;
-}
-
-.trustpilot-carousel__track {
-    display: flex;
-    gap: 0;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
-    transition: transform var(--transition-base);
-    will-change: transform;
-    touch-action: pan-y;
-}
-
-.trustpilot-carousel__card {
-    min-width: 100%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    padding: 1.25rem 1.5rem;
-    text-align: left;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-}
-
-.trustpilot-carousel__quote {
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: 600;
-    color: var(--color-white);
-}
-
-.trustpilot-carousel__meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.8rem;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.trustpilot-carousel__stars {
-    color: #00b67a;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
-.trustpilot-carousel__dots {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.9rem;
-    justify-content: center;
-}
-
-.trustpilot-carousel__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    border: none;
-    background: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: background var(--transition-base), transform var(--transition-base);
-}
-
-.trustpilot-carousel__dot.is-active {
-    background: #f5c400;
-    transform: scale(1.1);
-/* === FLOATING TRUSTPILOT BANNER === */
-.trustpilot-float {
-    position: fixed;
-    right: 2rem;
-    bottom: 2rem;
-    background: #2f3e3f;
-    color: var(--color-white);
-    border: 2px solid #f5c400;
-    border-radius: 24px;
-    padding: 1.5rem 1.8rem;
-    max-width: 420px;
-    width: min(420px, 90vw);
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-    z-index: 900;
-}
-
-.trustpilot-float__quote {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-.trustpilot-float__avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #f5c400;
-    color: #1a1a1a;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.trustpilot-float__message p {
-    font-size: 1.05rem;
-    line-height: 1.4;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-}
-
-.trustpilot-float__message span {
-    font-size: 0.95rem;
-    opacity: 0.85;
-}
-
-.trustpilot-float__brand {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.trustpilot-float__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.trustpilot-float__logo svg {
-    width: 22px;
-    height: 22px;
-    color: #00b67a;
-}
-
-.trustpilot-float__stars {
-    display: flex;
-    gap: 0.25rem;
-    color: #00b67a;
-    font-size: 1.1rem;
-}
-
 /* === FOOTER === */
 .footer {
     padding: var(--spacing-xl) 0;
@@ -1420,75 +1436,18 @@ img {
 }
 
 /* === RESPONSIVE === */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 1.25rem;
-    }
-
-    .hero__content {
-        padding: var(--spacing-xl) 0;
-    }
-
-    .hero__cta-group {
-        gap: var(--spacing-sm);
-    }
-
-    .gallery__grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .gallery__grid--floorplan {
-        grid-template-columns: 1fr;
-    }
-
-    .dream__card,
-    .winner__card {
-        padding: var(--spacing-lg);
-    }
-
-    .odds__formula {
-        padding: var(--spacing-lg);
-    }
-}
-
 @media (max-width: 768px) {
-    .section-header {
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .hero__headline-line--highlight {
-        font-size: clamp(2.4rem, 9vw, 4rem);
-    }
-
-    .hero__subline {
-        margin-bottom: var(--spacing-lg);
-    }
-
     .hero__cta-group {
         flex-direction: column;
-    }
-
-    .hero__cta-group .btn {
-        width: 100%;
     }
     
     .hero__trust-bar {
         flex-direction: column;
         gap: var(--spacing-sm);
     }
-
-    .hero__scroll-indicator {
-        display: none;
-    }
     
     .gallery__tabs {
         flex-direction: column;
-        align-items: stretch;
-    }
-
-    .gallery__tab {
-        width: 100%;
-        padding: 0.75rem 1.25rem;
     }
     
     .gallery__grid {
@@ -1506,131 +1465,19 @@ img {
     .odds__formula-visual {
         flex-direction: column;
     }
-
-    .odds__formula-part input {
-        width: 100%;
-        max-width: 260px;
-    }
     
     .timeline__track::before {
         left: 8px;
-    }
-
-    .timeline__item {
-        gap: var(--spacing-md);
     }
     
     .timeline__marker {
         width: 24px;
         height: 24px;
     }
-
-    .faq__question {
-        padding: var(--spacing-sm) var(--spacing-md);
-        font-size: 1.05rem;
-    }
-
-    .modal__content {
-        padding: var(--spacing-lg);
-    }
-
-    .trustpilot-carousel {
-        margin-top: var(--spacing-lg);
-    }
-
-    .trustpilot-carousel__card {
-        padding: 1rem 1.2rem;
-    }
     
     .footer__content {
         grid-template-columns: 1fr;
         text-align: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .hero__badge {
-        font-size: 0.75rem;
-    }
-
-    .hero__headline-line:nth-child(1) {
-        letter-spacing: 0.08em;
-    }
-
-    .hero__subline {
-        font-size: 1rem;
-    }
-
-    .btn {
-        font-size: 0.85rem;
-    }
-
-    .btn--large {
-        padding: 1rem 1.5rem;
-    }
-
-    .gallery,
-    .dream,
-    .how-it-works,
-    .odds,
-    .timeline,
-    .social-proof,
-    .faq,
-    .final-cta,
-    .footer {
-        padding: var(--spacing-xl) 0;
-    }
-
-    .odds__formula {
-        padding: var(--spacing-md);
-    }
-
-    .odds__formula-part input {
-        max-width: 100%;
-        font-size: 1.6rem;
-    }
-
-    .odds__formula-divider,
-    .odds__formula-equals {
-        font-size: 2rem;
-    }
-
-    .odds__result-value {
-        font-size: 2rem;
-    }
-
-    .timeline__track::before {
-        left: 6px;
-    }
-
-    .timeline__marker {
-        width: 20px;
-        height: 20px;
-    }
-
-    .press-logos__grid {
-        gap: var(--spacing-md);
-    }
-
-    .press-logo {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
-    }
-
-    .lightbox__close {
-        top: 1rem;
-        right: 1rem;
-        width: 40px;
-        height: 40px;
-    }
-
-    .lightbox__nav {
-        width: 44px;
-        height: 44px;
     }
 }
 
