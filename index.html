@@ -107,6 +107,42 @@ Each gallery tile displays its filename label so you know which image goes where
             
             <!-- Trustpilot Testimonial Carousel -->
             <div class="trustpilot-carousel" id="trustpilot-carousel">
+                <!-- Trustpilot Header -->
+                <div class="trustpilot-header">
+                    <svg class="trustpilot-logo" width="120" height="28" viewBox="0 0 120 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                            <!-- Trustpilot Star -->
+                            <path d="M13.9 0L16.8 9.2H26.5L18.8 14.9L21.7 24.1L13.9 18.4L6.2 24.1L9.1 14.9L1.4 9.2H11.1L13.9 0Z" fill="#00B67A"/>
+                            <!-- "Trustpilot" text -->
+                            <path d="M37.5 7.3H32.9V22.7H37.5V7.3ZM51.8 7.3H44.2V10.7H47.2V22.7H51.8V10.7H54.8V7.3H51.8ZM65.9 10.7C65.9 9.1 64.6 7.3 62 7.3H56.9V22.7H61.5V17.1H61.9L65.1 22.7H70.4L66.6 16.5C66.2 16 65.9 15.4 65.9 14.7V10.7ZM61.5 10.7H62C62.8 10.7 63.3 11.2 63.3 12V13.5C63.3 14.3 62.8 14.8 62 14.8H61.5V10.7ZM76.9 7.3H72.3V17.6C72.3 20.8 74.1 23.1 77.8 23.1C81.5 23.1 83.3 20.8 83.3 17.6V7.3H78.7V17C78.7 18.2 78.2 18.8 77.3 18.8C76.4 18.8 75.9 18.2 75.9 17V7.3H76.9ZM91.2 7.3C87.4 7.3 85.2 9.5 85.2 13V17.3C85.2 20.8 87.4 23 91.2 23C95 23 97.2 20.8 97.2 17.3V16.2H92.6V17.3C92.6 18.6 92 19.2 91.2 19.2C90.4 19.2 89.8 18.6 89.8 17.3V13C89.8 11.7 90.4 11.1 91.2 11.1C92 11.1 92.6 11.7 92.6 13V13.5H97.2V13C97.2 9.5 95 7.3 91.2 7.3ZM106.5 7.3H99V22.7H103.6V17.5H106.5C109.1 17.5 110.5 15.9 110.5 13.8V10.9C110.5 8.9 109.1 7.3 106.5 7.3ZM103.6 10.7H105.9C106.7 10.7 107.1 11.1 107.1 11.9V12.8C107.1 13.6 106.7 14 105.9 14H103.6V10.7ZM117.9 7.3H113.3V22.7H117.9V7.3Z" fill="#191919"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0">
+                                <rect width="120" height="28" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <div class="trustpilot-rating">
+                        <div class="trustpilot-stars-inline">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#00B67A">
+                                <path d="M10 0L12.5 6.5L19.5 7.5L14.5 12L15.5 19L10 15.5L4.5 19L5.5 12L0.5 7.5L7.5 6.5L10 0Z"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#00B67A">
+                                <path d="M10 0L12.5 6.5L19.5 7.5L14.5 12L15.5 19L10 15.5L4.5 19L5.5 12L0.5 7.5L7.5 6.5L10 0Z"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#00B67A">
+                                <path d="M10 0L12.5 6.5L19.5 7.5L14.5 12L15.5 19L10 15.5L4.5 19L5.5 12L0.5 7.5L7.5 6.5L10 0Z"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#00B67A">
+                                <path d="M10 0L12.5 6.5L19.5 7.5L14.5 12L15.5 19L10 15.5L4.5 19L5.5 12L0.5 7.5L7.5 6.5L10 0Z"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="#00B67A">
+                                <path d="M10 0L12.5 6.5L19.5 7.5L14.5 12L15.5 19L10 15.5L4.5 19L5.5 12L0.5 7.5L7.5 6.5L10 0Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="trustpilot-carousel__container">
                     <div class="trustpilot-carousel__track" id="testimonial-track">
                         <!-- Testimonial 1 -->
@@ -460,12 +496,12 @@ Each gallery tile displays its filename label so you know which image goes where
                         <div class="odds__formula-divider">/</div>
                         <div class="odds__formula-part">
                             <label for="total-sold">Total Sold</label>
-                            <input type="number" id="total-sold" value="50000" min="1" readonly>
+                            <input type="number" id="total-sold" value="200000" min="1" readonly>
                         </div>
                         <div class="odds__formula-equals">=</div>
                         <div class="odds__formula-result">
                             <span class="odds__result-label">Your Odds</span>
-                            <span class="odds__result-value" id="odds-result">1 in 10,000</span>
+                            <span class="odds__result-value" id="odds-result">1 in 40,000</span>
                         </div>
                     </div>
                 </div>
@@ -736,18 +772,18 @@ Each gallery tile displays its filename label so you know which image goes where
                     <button class="ticket-option" data-tickets="1">
                         <span class="ticket-option__count">1</span>
                         <span class="ticket-option__label">Ticket</span>
-                        <span class="ticket-option__price" data-price-per="50">$50</span>
+                        <span class="ticket-option__price" data-price-per="30">$30</span>
                     </button>
                     <button class="ticket-option ticket-option--popular" data-tickets="5">
                         <div class="ticket-option__badge">Popular</div>
                         <span class="ticket-option__count">5</span>
                         <span class="ticket-option__label">Tickets</span>
-                        <span class="ticket-option__price" data-price-per="50">$250</span>
+                        <span class="ticket-option__price" data-price-per="30">$150</span>
                     </button>
                     <button class="ticket-option" data-tickets="10">
                         <span class="ticket-option__count">10</span>
                         <span class="ticket-option__label">Tickets</span>
-                        <span class="ticket-option__price" data-price-per="50">$500</span>
+                        <span class="ticket-option__price" data-price-per="30">$300</span>
                     </button>
                 </div>
                 
@@ -764,7 +800,7 @@ Each gallery tile displays its filename label so you know which image goes where
                 </div>
                 <div class="ticket-summary__row ticket-summary__total">
                     <span>Total:</span>
-                    <span id="total-price">$50</span>
+                    <span id="total-price">$30</span>
                 </div>
             </div>
             
