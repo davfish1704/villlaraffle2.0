@@ -8,6 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- META PIXEL PLACEHOLDER - Insert your Meta Pixel code here -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_META_PIXEL_ID'); // PLACEHOLDER: Replace with your Pixel ID
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- GOOGLE ANALYTICS 4 PLACEHOLDER - Insert your GA4 code here -->
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17935774896"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17935774896');
+</script>
+    
     <style>
         * {
             font-family: 'Montserrat', sans-serif;
@@ -173,6 +204,18 @@
             background: #c9a961;
             border-radius: 5px;
         }
+        
+        .form-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .success-message {
+            display: none;
+        }
+        .success-message.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="luxury-bg text-stone-800 antialiased">
@@ -225,8 +268,14 @@
                 </div>
             </div>
 
-            <!-- Qualification Form -->
-            <form id="qualForm" class="space-y-6" onsubmit="handleQualSubmit(event)">
+            <!-- FORMSPREE FORM - Alle Daten werden hier gesammelt und gesendet -->
+            <form id="qualForm" class="space-y-6" action="https://formspree.io/f/xbdareoj" method="POST">
+                
+                <!-- Hidden fields für Tracking -->
+                <input type="hidden" name="form_source" value="landing_page_qualification">
+                <input type="hidden" name="submission_date" id="submissionDate">
+                <input type="hidden" name="user_agent" id="userAgent">
+                <input type="hidden" name="page_url" id="pageUrl">
                 
                 <div class="mb-8">
                     <div class="flex justify-between text-xs uppercase tracking-luxury text-stone-500 mb-2">
@@ -244,8 +293,8 @@
                     <p class="text-stone-500 text-sm mb-6">This eliminates 94% of inquiries. We only speak with qualified buyers ready for immediate closing.</p>
                     
                     <div class="space-y-3">
-                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(2)">
-                            <input type="radio" name="funds" value="ready" class="hidden" required onchange="selectRadio(this)">
+                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(2); trackEvent('qualification', 'step1', 'funds_ready')">
+                            <input type="radio" name="funds_status" value="ready" class="hidden" required onchange="selectRadio(this)">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="font-serif text-lg text-stone-900">Yes, funds are ready</div>
@@ -257,8 +306,8 @@
                             </div>
                         </label>
                         
-                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('funds')">
-                            <input type="radio" name="funds" value="later" class="hidden" disabled>
+                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('funds'); trackEvent('qualification', 'step1', 'funds_not_ready')">
+                            <input type="radio" name="funds_status" value="not_ready" class="hidden" disabled>
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="font-serif text-lg text-stone-900">Not yet / Need to arrange</div>
@@ -275,8 +324,8 @@
                     <p class="text-stone-500 text-sm mb-6">This is the standard structure for foreign property ownership in Bali. Built 2023, so 29 years remaining.</p>
                     
                     <div class="space-y-3">
-                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(3)">
-                            <input type="radio" name="leasehold" value="yes" class="hidden" onchange="selectRadio(this)">
+                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(3); trackEvent('qualification', 'step2', 'leasehold_accepted')">
+                            <input type="radio" name="leasehold_comfort" value="yes" class="hidden" onchange="selectRadio(this)">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="font-serif text-lg text-stone-900">Yes, I understand leasehold</div>
@@ -288,8 +337,8 @@
                             </div>
                         </label>
                         
-                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('leasehold')">
-                            <input type="radio" name="leasehold" value="no" class="hidden" disabled>
+                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('leasehold'); trackEvent('qualification', 'step2', 'leasehold_rejected')">
+                            <input type="radio" name="leasehold_comfort" value="no" class="hidden" disabled>
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="font-serif text-lg text-stone-900">I want freehold only</div>
@@ -302,7 +351,7 @@
                     <button type="button" onclick="prevStep(1)" class="mt-4 text-xs uppercase tracking-luxury text-stone-400 hover:text-stone-600">← Back</button>
                 </div>
 
-                <!-- Step 3: Timeline & Payment -->
+                <!-- Step 3: Timeline & Payment + Kontaktdaten -->
                 <div class="form-step hidden" id="step3">
                     <h2 class="text-2xl font-serif text-stone-900 mb-2">When and how do you want to <span class="text-gold italic">close</span>?</h2>
                     <p class="text-stone-500 text-sm mb-6">Serious buyers only. 2023 build, fully furnished, ready for immediate occupancy.</p>
@@ -311,13 +360,13 @@
                         <div>
                             <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Timeline (Critical)</label>
                             <div class="grid grid-cols-2 gap-3">
-                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this)">
+                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this); trackEvent('qualification', 'step3', 'timeline_this_week')">
                                     <input type="radio" name="timeline" value="this-week" class="hidden" required onchange="selectRadio(this)">
                                     <div class="font-serif text-lg text-stone-900">This Week</div>
                                     <div class="text-xs text-stone-500 mt-1">Cash/crypto ready</div>
                                 </label>
                                 
-                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this)">
+                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this); trackEvent('qualification', 'step3', 'timeline_next_week')">
                                     <input type="radio" name="timeline" value="next-week" class="hidden" onchange="selectRadio(this)">
                                     <div class="font-serif text-lg text-stone-900">Next Week</div>
                                     <div class="text-xs text-stone-500 mt-1">Wire transfer pending</div>
@@ -340,8 +389,8 @@
                         <div class="pt-4">
                             <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Payment Method</label>
                             <div class="grid grid-cols-2 gap-3">
-                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this)">
-                                    <input type="radio" name="payment" value="crypto" class="hidden" required onchange="selectRadio(this)">
+                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this); trackEvent('qualification', 'step3', 'payment_crypto')">
+                                    <input type="radio" name="payment_method" value="crypto" class="hidden" required onchange="selectRadio(this)">
                                     <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                                     </div>
@@ -351,10 +400,10 @@
                                     </div>
                                 </label>
                                 
-                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this)">
-                                    <input type="radio" name="payment" value="bank" class="hidden" onchange="selectRadio(this)">
+                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this); trackEvent('qualification', 'step3', 'payment_bank')">
+                                    <input type="radio" name="payment_method" value="bank" class="hidden" onchange="selectRadio(this)">
                                     <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 0 003 3z"/></svg>
                                     </div>
                                     <div>
                                         <div class="font-medium text-stone-900">Bank Wire</div>
@@ -364,30 +413,52 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 pt-4">
+                        <!-- Kontaktdaten -->
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-200">
                             <div>
                                 <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Full Name *</label>
-                                <input type="text" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="John Doe">
+                                <input type="text" name="full_name" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="John Doe" onfocus="trackEvent('form', 'focus', 'name_field')">
                             </div>
                             <div>
                                 <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">WhatsApp *</label>
-                                <input type="tel" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="+1 234 567 890">
+                                <input type="tel" name="whatsapp" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="+1 234 567 890">
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Email *</label>
-                            <input type="email" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="john@example.com">
+                            <input type="email" name="email" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="john@example.com">
                         </div>
 
-                        <button type="submit" class="w-full py-4 bg-gold hover:bg-gold-dark text-white font-medium uppercase tracking-luxury text-sm transition-all shadow-luxury mt-4">
+                        <!-- Zusätzliche optionale Felder -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Message (Optional)</label>
+                            <textarea name="message" rows="3" class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="Tell us about your plans..."></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full py-4 bg-gold hover:bg-gold-dark text-white font-medium uppercase tracking-luxury text-sm transition-all shadow-luxury mt-4">
                             View Full Property Details
                         </button>
+                        
+                        <!-- Loading State -->
+                        <div id="formLoading" class="hidden text-center py-4">
+                            <div class="inline-block w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
+                            <p class="text-stone-500 text-sm mt-2">Sending your qualification...</p>
+                        </div>
                     </div>
                     
                     <button type="button" onclick="prevStep(2)" class="mt-4 text-xs uppercase tracking-luxury text-stone-400 hover:text-stone-600">← Back</button>
                 </div>
             </form>
+            
+            <!-- Success Message (wird nach Absenden angezeigt) -->
+            <div id="successMessage" class="success-message bg-white p-8 shadow-luxury border border-gold text-center">
+                <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="text-2xl font-serif text-stone-900 mb-2">Qualification Submitted</h3>
+                <p class="text-stone-600 mb-6">Thank you. Loading property details...</p>
+            </div>
         </div>
     </section>
 
@@ -602,7 +673,7 @@
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> No bank delays</li>
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> Notary included</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="w-full py-3 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors">Select Option</button>
+                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'crypto_option')" class="w-full py-3 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors">Select Option</button>
                     </div>
 
                     <!-- Cash Option -->
@@ -615,7 +686,7 @@
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> 2-month close</li>
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> Secure escrow</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="w-full py-3 border border-white text-white font-medium uppercase tracking-luxury text-sm hover:bg-white hover:text-black transition-colors">Select Option</button>
+                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'bank_option')" class="w-full py-3 border border-white text-white font-medium uppercase tracking-luxury text-sm hover:bg-white hover:text-black transition-colors">Select Option</button>
                     </div>
 
                     <!-- Offers -->
@@ -628,7 +699,7 @@
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> Fully furnished</li>
                             <li class="flex items-center gap-2"><span class="text-gold">✓</span> 120m² on 1.8 are</li>
                         </ul>
-                        <button onclick="scrollToContact()" class="w-full py-3 border border-gold text-gold font-medium uppercase tracking-luxury text-sm hover:bg-gold hover:text-black transition-colors">Make Offer</button>
+                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'make_offer')" class="w-full py-3 border border-gold text-gold font-medium uppercase tracking-luxury text-sm hover:bg-gold hover:text-black transition-colors">Make Offer</button>
                     </div>
                 </div>
             </div>
@@ -716,7 +787,7 @@
                 <p class="text-3xl font-serif text-gold mb-8">$235,000 — Offers Accepted</p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/YOURNUMBER" class="px-8 py-4 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors inline-flex items-center justify-center gap-2">
+                    <a href="https://wa.me/YOURNUMBER" onclick="trackEvent('conversion', 'whatsapp_click', 'final_cta')" class="px-8 py-4 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors inline-flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Contact via WhatsApp
                     </a>
@@ -753,7 +824,40 @@
     </div>
 
     <script>
-        // Gallery Images - Local files from /public folder
+        // Tracking Helper Function
+        function trackEvent(category, action, label) {
+            // Google Analytics 4 Event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label,
+                    'value': 1
+                });
+            }
+            
+            // Meta Pixel Event
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', action, {
+                    content_category: category,
+                    content_name: label
+                });
+            }
+            
+            console.log('Track:', category, action, label);
+        }
+
+        // Form Tracking
+        function initTracking() {
+            // Setze Hidden Fields
+            document.getElementById('submissionDate').value = new Date().toISOString();
+            document.getElementById('userAgent').value = navigator.userAgent;
+            document.getElementById('pageUrl').value = window.location.href;
+            
+            // Track Page View
+            trackEvent('page', 'view', 'landing_page');
+        }
+
+        // Gallery Images
         const galleryImages = [
             '/public/balcony.jpg',
             '/public/bathroom.jpg',
@@ -775,15 +879,16 @@
         galleryImages.forEach((src, index) => {
             const item = document.createElement('div');
             item.className = 'gallery-item';
-            item.onclick = () => openLightbox(src);
+            item.onclick = () => {
+                openLightbox(src);
+                trackEvent('gallery', 'click', 'image_' + (index + 1));
+            };
             
-            // Create image with error handling
             const img = document.createElement('img');
             img.src = src;
             img.alt = `The Loft ${index + 1}`;
             img.loading = 'lazy';
             img.onerror = function() {
-                // Try fallback images if main fails
                 const fallbacks = ['/public/hero-main.jpg', '/public/living-space.jpg', '/public/dining-table.jpg'];
                 const randomFallback = fallbacks[Math.floor(Math.random() * fallbacks.length)];
                 if (this.src !== randomFallback) {
@@ -858,32 +963,85 @@
             document.getElementById('disqualifyModal').classList.remove('flex');
         }
         
-        function handleQualSubmit(e) {
+        // Formspree Form Handling
+        document.getElementById('qualForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            btn.innerHTML = 'Access Granted...';
-            btn.disabled = true;
             
-            setTimeout(() => {
-                // Hide qualification, show property
-                document.getElementById('qualification').style.display = 'none';
-                document.getElementById('propertyDetails').classList.remove('hidden');
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingDiv = document.getElementById('formLoading');
+            const successDiv = document.getElementById('successMessage');
+            
+            // UI State: Loading
+            submitBtn.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+            
+            // Track Form Submit Start
+            trackEvent('form', 'submit', 'qualification_started');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                // Smooth scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (response.ok) {
+                    // Track Success
+                    trackEvent('form', 'submit_success', 'qualification_complete');
+                    
+                    // Meta Pixel Lead Event
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {
+                            content_name: 'The Loft Qualification',
+                            value: 235000,
+                            currency: 'USD'
+                        });
+                    }
+                    
+                    // Show Success
+                    loadingDiv.classList.add('hidden');
+                    successDiv.classList.add('active');
+                    
+                    // Redirect to Property Details after delay
+                    setTimeout(() => {
+                        document.getElementById('qualification').style.display = 'none';
+                        document.getElementById('propertyDetails').classList.remove('hidden');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        
+                        // Update urgency bar
+                        document.querySelector('.fixed.top-0').innerHTML = `
+                            <div class="max-w-7xl mx-auto flex justify-between items-center text-xs uppercase tracking-luxury">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+                                    Qualified Buyer Viewing • Padonan, Canggu
+                                </div>
+                                <div class="font-bold text-gold">$235,000 — Offers Accepted</div>
+                            </div>
+                        `;
+                        
+                        // Track Page View of Property Details
+                        trackEvent('page', 'view', 'property_details');
+                    }, 1500);
+                    
+                } else {
+                    throw new Error('Form submission failed');
+                }
                 
-                // Update urgency bar
-                document.querySelector('.fixed.top-0').innerHTML = `
-                    <div class="max-w-7xl mx-auto flex justify-between items-center text-xs uppercase tracking-luxury">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
-                            Qualified Buyer Viewing • Padonan, Canggu
-                        </div>
-                        <div class="font-bold text-gold">$235,000 — Offers Accepted</div>
-                    </div>
-                `;
-            }, 1000);
-        }
+            } catch (error) {
+                console.error('Error:', error);
+                trackEvent('form', 'submit_error', error.message);
+                
+                // Reset UI
+                loadingDiv.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+                submitBtn.textContent = 'Error - Try Again';
+                
+                alert('There was an error submitting your form. Please try again or contact us directly via WhatsApp.');
+            }
+        });
 
         function scrollToContact() {
             document.getElementById('contactSection').scrollIntoView({ behavior: 'smooth' });
@@ -893,8 +1051,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initTracking();
+            
+            // GSAP Animations
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+            }
+        });
     </script>
 </body>
 </html>
