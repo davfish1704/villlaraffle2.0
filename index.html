@@ -29,33 +29,14 @@
     <!-- End Meta Pixel Code -->
 
     <!-- GOOGLE ANALYTICS 4 PLACEHOLDER - Insert your GA4 code here -->
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17935774896"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17935774896');
-</script>
-<!-- Event snippet for Lead-Formular senden conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17935774896/4mi1COPM5PMbELDpuOhC',
-      'value': 1.0,
-      'currency': 'EUR',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID'); // PLACEHOLDER: Replace with your GA4 ID
+    </script>
     
     <style>
         * {
@@ -234,6 +215,67 @@ function gtag_report_conversion(url) {
         .success-message.active {
             display: block;
         }
+
+        /* Background Image Styles */
+        .qualification-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+        }
+        
+        .bg-image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        .bg-image.active {
+            opacity: 1;
+        }
+        
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(250, 249, 246, 0.85); /* Light overlay for readability */
+            backdrop-filter: blur(2px);
+        }
+        
+        .form-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .bg-overlay {
+                background: rgba(250, 249, 246, 0.92);
+            }
+        }
     </style>
 </head>
 <body class="luxury-bg text-stone-800 antialiased">
@@ -249,9 +291,24 @@ function gtag_report_conversion(url) {
         </div>
     </div>
 
+    <!-- BACKGROUND IMAGES CONTAINER - Configure your images here -->
+    <div class="bg-image-container" id="bgContainer">
+        <!-- Step 1 Background -->
+        <div class="bg-image active" id="bg-step1" style="background-image: url('/public/hero-main.jpg');"></div>
+        <!-- Step 2 Background -->
+        <div class="bg-image" id="bg-step2" style="background-image: url('/public/living-space.jpg');"></div>
+        <!-- Step 3 Background -->
+        <div class="bg-image" id="bg-step3" style="background-image: url('/public/bedroom.jpg');"></div>
+        <!-- Default/Fallback Background -->
+        <div class="bg-image" id="bg-default" style="background-image: url('/public/hero-loft.jpg');"></div>
+        
+        <!-- Overlay for readability -->
+        <div class="bg-overlay"></div>
+    </div>
+
     <!-- SECTION 1: QUALIFICATION FORM -->
-    <section id="qualification" class="min-h-screen flex items-center pt-20 pb-12 px-4 sm:px-6 texture-overlay">
-        <div class="max-w-2xl mx-auto w-full">
+    <section id="qualification" class="qualification-section px-4 sm:px-6 texture-overlay">
+        <div class="max-w-2xl mx-auto w-full form-container p-8 md:p-12">
             
             <div class="text-center mb-10">
                 <div class="inline-block mb-4">
@@ -269,7 +326,7 @@ function gtag_report_conversion(url) {
             </div>
 
             <!-- Quick Specs Bar -->
-            <div class="bg-white p-6 shadow-luxury border border-stone-200 mb-8">
+            <div class="bg-white/80 p-6 shadow-luxury border border-stone-200 mb-8 backdrop-blur-sm">
                 <div class="grid grid-cols-3 gap-4 text-center divide-x divide-stone-200">
                     <div>
                         <div class="text-xs uppercase tracking-luxury text-stone-500 mb-1">Location</div>
@@ -842,6 +899,53 @@ function gtag_report_conversion(url) {
     </div>
 
     <script>
+        // ==========================================
+        // BACKGROUND CONFIGURATION - EDIT HERE
+        // ==========================================
+        // Change these URLs to use different images for each step
+        const backgroundConfig = {
+            step1: '/public/hero-main.jpg',      // Money question background
+            step2: '/public/living-space.jpg',   // Leasehold question background  
+            step3: '/public/bedroom.jpg',        // Timeline question background
+            default: '/public/hero-loft.jpg'     // Fallback background
+        };
+
+        // Alternative: Use Unsplash images for testing
+        // const backgroundConfig = {
+        //     step1: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920',
+        //     step2: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920',
+        //     step3: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920',
+        //     default: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920'
+        // };
+
+        // ==========================================
+        // BACKGROUND MANAGEMENT
+        // ==========================================
+        function updateBackground(step) {
+            // Hide all backgrounds
+            document.querySelectorAll('.bg-image').forEach(bg => {
+                bg.classList.remove('active');
+            });
+            
+            // Show the appropriate background
+            const bgId = `bg-step${step}`;
+            const bgElement = document.getElementById(bgId);
+            if (bgElement) {
+                bgElement.classList.add('active');
+            } else {
+                // Fallback to default
+                document.getElementById('bg-default').classList.add('active');
+            }
+        }
+
+        // Initialize backgrounds from config
+        function initBackgrounds() {
+            document.getElementById('bg-step1').style.backgroundImage = `url('${backgroundConfig.step1}')`;
+            document.getElementById('bg-step2').style.backgroundImage = `url('${backgroundConfig.step2}')`;
+            document.getElementById('bg-step3').style.backgroundImage = `url('${backgroundConfig.step3}')`;
+            document.getElementById('bg-default').style.backgroundImage = `url('${backgroundConfig.default}')`;
+        }
+
         // Tracking Helper Function
         function trackEvent(category, action, label) {
             // Google Analytics 4 Event
@@ -935,6 +1039,7 @@ function gtag_report_conversion(url) {
             document.getElementById(`step${step}`).classList.remove('hidden');
             currentStep = step;
             updateProgress();
+            updateBackground(step); // Change background image
         }
         
         function prevStep(step) {
@@ -942,6 +1047,7 @@ function gtag_report_conversion(url) {
             document.getElementById(`step${step}`).classList.remove('hidden');
             currentStep = step;
             updateProgress();
+            updateBackground(step); // Change background image
         }
         
         function updateProgress() {
@@ -1071,6 +1177,7 @@ function gtag_report_conversion(url) {
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            initBackgrounds(); // Set up background images
             initTracking();
             
             // GSAP Animations
