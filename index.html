@@ -1,1194 +1,670 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Loft | Padonan, Canggu | $235K</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Invest in Your Sanctuary | Canggu Loft $235K</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-  <!-- Google tag (GA4 + Google Ads) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Google Tag (GA4 + Google Ads) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT4S0Z3Z1L"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    /* GA4 */
     gtag('config', 'G-MT4S0Z3Z1L');
-
-    /* Google Ads */
     gtag('config', 'AW-17935774896');
   </script>
-
-  <!-- Google Ads Conversion -->
+  
   <script>
-    function gtag_report_conversion() {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17935774896/4mi1COPM5PMbELDpuOhC',
-        'value': 1.0,
-        'currency': 'EUR'
-      });
-      return true;
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            gold: '#c9a961',
+            'gold-dark': '#b8944f',
+            sand: '#faf9f6',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'success-check': 'successCheck 0.5s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            successCheck: {
+              '0%': { transform: 'scale(0)', opacity: '0' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            }
+          }
+        }
+      }
     }
   </script>
-
-  <!-- CSS -->
+  
   <style>
-    * {
-      font-family: 'Montserrat', sans-serif;
-    }
-    .font-serif {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    
-    .luxury-bg {
-      background-color: #faf9f6;
-      background-image: radial-gradient(at 40% 20%, hsla(28,100%,94%,1) 0px, transparent 50%);
-    }
-    
-    .text-gold {
-      color: #c9a961;
-    }
-    .bg-gold {
-      background-color: #c9a961;
-    }
-    .border-gold {
-      border-color: #c9a961;
-    }
-    .hover\:bg-gold-dark:hover {
-      background-color: #b8944f;
-    }
-    
-    .shadow-luxury {
-      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .input-luxury {
-      background: #ffffff;
-      border: 1px solid #e5e0d5;
-      transition: all 0.3s ease;
-    }
-    .input-luxury:focus {
-      border-color: #c9a961;
-      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
-      outline: none;
-    }
-    
-    .radio-luxury {
-      background: #ffffff;
-      border: 2px solid #e5e0d5;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .radio-luxury:hover {
-      border-color: #c9a961;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-    }
-    .radio-luxury.selected {
-      border-color: #c9a961;
-      background: linear-gradient(135deg, #faf9f6 0%, #f5f1e8 100%);
-    }
-    
-    .tracking-luxury {
-      letter-spacing: 0.2em;
-    }
-    
-    .texture-overlay {
-      position: relative;
-    }
-    .texture-overlay::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.03;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-    
-    .eliminated {
-      position: relative;
-      opacity: 0.4;
-    }
-    .eliminated::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 2px;
-      background: #dc2626;
-      transform: rotate(-5deg);
-    }
-    
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    @media (max-width: 1024px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 640px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .gallery-item {
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .gallery-item:hover {
-      transform: scale(1.02);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
-    
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-    }
-    .lightbox.active {
-      display: flex;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    }
-    
-    .spec-card {
-      background: white;
-      border: 1px solid #e5e0d5;
-      transition: all 0.3s ease;
-    }
-    .spec-card:hover {
-      border-color: #c9a961;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-    }
-    
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #faf9f6;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #c9a961;
-      border-radius: 5px;
-    }
-    
-    .form-loading {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    
-    .success-message {
-      display: none;
-    }
-    .success-message.active {
-      display: block;
-    }
-
-    /* Background Image Styles */
-    .qualification-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 5rem;
-      padding-bottom: 3rem;
-    }
-    
-    .bg-image-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      transition: opacity 0.8s ease-in-out;
-    }
-    
-    .bg-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    /* Critical CSS for Above the Fold */
+    .hero-bg {
+      background-image: url('/public/hero-main.webp');
       background-size: cover;
       background-position: center;
-      opacity: 0;
-      transition: opacity 0.8s ease-in-out;
+      will-change: transform;
     }
     
-    .bg-image.active {
-      opacity: 1;
-    }
-    
-    .bg-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(250, 249, 246, 0.85); /* Light overlay for readability */
-      backdrop-filter: blur(2px);
-    }
-    
-    .form-container {
-      position: relative;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 8px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    }
-
     @media (max-width: 768px) {
-      .bg-overlay {
-        background: rgba(250, 249, 246, 0.92);
+      .hero-bg {
+        background-image: url('/public/hero-main-mobile.webp');
       }
     }
+    
+    /* Floating Labels */
+    .floating-input:focus ~ label,
+    .floating-input:not(:placeholder-shown) ~ label {
+      transform: translateY(-1.5rem) scale(0.85);
+      color: #c9a961;
+    }
+    
+    .floating-input:focus {
+      border-color: #c9a961;
+      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #faf9f6; }
+    ::-webkit-scrollbar-thumb { background: #c9a961; border-radius: 4px; }
+    
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .sticky-cta.visible {
+      transform: translateY(0);
+    }
+    
+    /* Success Animation */
+    .success-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    
+    .success-check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    }
+    
+    @keyframes stroke {
+      100% { stroke-dashoffset: 0; }
+    }
+    
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* Investment Card Hover */
+    .invest-card {
+      transition: all 0.3s ease;
+    }
+    .invest-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+    }
   </style>
+<base target="_blank">
 </head>
-<body class="luxury-bg text-stone-800 antialiased">
+<body class="font-sans text-stone-800 bg-sand antialiased">
 
-    <!-- Urgency Bar -->
-    <div class="fixed top-0 w-full z-50 bg-red-700 text-white py-3 px-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-xs uppercase tracking-luxury">
-            <div class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                Direct Owner Sale — Offers Accepted
-            </div>
-            <div class="font-bold" id="countdown">Closing soon</div>
-        </div>
+  <!-- Urgency Bar -->
+  <div class="fixed top-0 w-full z-50 bg-red-700 text-white py-2.5 px-4 text-xs uppercase tracking-widest font-medium">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+        </span>
+        Direct Owner Sale — Only 1 Unit Left
+      </div>
+      <div id="countdown" class="font-bold">Closing Soon</div>
     </div>
+  </div>
 
-    <!-- BACKGROUND IMAGES CONTAINER - Configure your images here -->
-    <div class="bg-image-container" id="bgContainer">
-        <!-- Step 1 Background -->
-        <div class="bg-image active" id="bg-step1" style="background-image: url('/public/hero-main.jpg');"></div>
-        <!-- Step 2 Background -->
-        <div class="bg-image" id="bg-step2" style="background-image: url('/public/living-space.jpg');"></div>
-        <!-- Step 3 Background -->
-        <div class="bg-image" id="bg-step3" style="background-image: url('/public/bedroom.jpg');"></div>
-        <!-- Default/Fallback Background -->
-        <div class="bg-image" id="bg-default" style="background-image: url('/public/hero-loft.jpg');"></div>
+  <!-- HERO SECTION - Above the Fold Optimized -->
+  <section class="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden">
+    <!-- Background Image with Priority Loading -->
+    <div class="absolute inset-0 hero-bg" fetchpriority="high"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         
-        <!-- Overlay for readability -->
-        <div class="bg-overlay"></div>
-    </div>
-
-    <!-- SECTION 1: QUALIFICATION FORM -->
-    <section id="qualification" class="qualification-section px-4 sm:px-6 texture-overlay">
-        <div class="max-w-2xl mx-auto w-full form-container p-8 md:p-12">
+        <!-- Left: Headline & Trust (Mobile: Stacked) -->
+        <div class="text-center lg:text-left animate-fade-in">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-xs uppercase tracking-widest text-gold mb-6 border border-gold/30">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Last Unit Available • Padonan, Canggu
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4">
+            Invest in Your<br>
+            <span class="italic text-gold">Sanctuary</span> in Canggu
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-stone-200 font-light mb-2 max-w-xl mx-auto lg:mx-0">
+            $235,000 Industrial Loft • 120m² • 15% ROI
+          </p>
+          
+          <p class="text-sm text-stone-300 mb-8 max-w-lg mx-auto lg:mx-0">
+            Built 2023. Fully furnished. 30-year leasehold. 
+            <span class="text-white font-medium">Only serious investors.</span>
+          </p>
+          
+          <!-- Mobile CTA (Visible immediately) -->
+          <div class="lg:hidden mb-8">
+            <a href="#investment-form" class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-dark text-white font-semibold uppercase tracking-widest text-sm transition-all shadow-lg hover:shadow-xl rounded-sm">
+              Request Exposé
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+          
+          <!-- Trust Indicators -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-6 text-xs uppercase tracking-widest text-stone-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Verified Owner</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span>Escrow Ready</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <span>Fast Closing</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Investment Form (High-Value Design) -->
+        <div id="investment-form" class="animate-slide-up">
+          <div class="glass rounded-lg p-6 sm:p-8 shadow-2xl border border-white/20">
+            <div class="text-center mb-6">
+              <h2 class="text-2xl font-serif text-stone-900 mb-2">Investment Inquiry</h2>
+              <p class="text-sm text-stone-500">Complete the form to receive the full exposé</p>
+            </div>
             
-            <div class="text-center mb-10">
-                <div class="inline-block mb-4">
-                    <span class="text-xs uppercase tracking-luxury text-red-700 font-semibold border-b border-red-700 pb-1">Last Unit • Padonan, Canggu</span>
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl font-serif font-light leading-tight text-stone-900 mb-4">
-                    The <span class="italic text-gold">120m² Industrial Loft</span><br>
-                    <span class="text-3xl">$235,000 — Offers Accepted</span>
-                </h1>
-                
-                <p class="text-stone-600 font-light text-lg">
-                    Built 2023. Fully furnished. <span class="text-red-700 font-medium">One qualified buyer only.</span>
-                </p>
+            <!-- Progress Bar -->
+            <div class="mb-6">
+              <div class="flex justify-between text-xs uppercase tracking-widest text-stone-400 mb-2">
+                <span>Step <span id="stepIndicator">1</span> of 3</span>
+                <span id="progressPercent">33%</span>
+              </div>
+              <div class="w-full bg-stone-200 rounded-full h-1.5">
+                <div id="formProgress" class="bg-gold h-1.5 rounded-full transition-all duration-500" style="width: 33%"></div>
+              </div>
             </div>
-
-            <!-- Quick Specs Bar -->
-            <div class="bg-white/80 p-6 shadow-luxury border border-stone-200 mb-8 backdrop-blur-sm">
-                <div class="grid grid-cols-3 gap-4 text-center divide-x divide-stone-200">
-                    <div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500 mb-1">Location</div>
-                        <div class="text-lg font-serif text-stone-900">Padonan</div>
+            
+            <!-- Form -->
+            <form id="leadForm" class="space-y-5" action="https://formspree.io/f/xbdareoj" method="POST">
+              <!-- Hidden tracking fields -->
+              <input type="hidden" name="form_source" value="optimized_landing_page">
+              <input type="hidden" name="submission_date" id="submissionDate">
+              <input type="hidden" name="page_url" id="pageUrl">
+              
+              <!-- Step 1: Investment Capacity -->
+              <div class="form-step" id="step1">
+                <label class="block text-sm font-medium text-stone-700 mb-3">
+                  Do you have $235K ready to invest?
+                </label>
+                <div class="space-y-3">
+                  <label class="relative flex items-center p-4 border-2 border-stone-200 rounded-lg cursor-pointer hover:border-gold transition-all group">
+                    <input type="radio" name="investment_ready" value="yes" class="sr-only" required onchange="handleStep1(this)">
+                    <div class="flex-1">
+                      <div class="font-medium text-stone-900 group-hover:text-gold transition-colors">Yes, funds available</div>
+                      <div class="text-xs text-stone-500">Bank transfer or crypto ready</div>
                     </div>
-                    <div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500 mb-1">Building</div>
-                        <div class="text-lg font-serif text-stone-900">120 m²</div>
+                    <div class="w-5 h-5 border-2 border-stone-300 rounded-full flex items-center justify-center check-circle">
+                      <div class="w-2.5 h-2.5 bg-gold rounded-full opacity-0 transition-opacity"></div>
                     </div>
-                    <div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500 mb-1">Status</div>
-                        <div class="text-lg font-serif text-gold">Leasehold</div>
+                  </label>
+                  
+                  <label class="relative flex items-center p-4 border-2 border-stone-200 rounded-lg cursor-pointer opacity-60">
+                    <input type="radio" name="investment_ready" value="no" class="sr-only" disabled>
+                    <div class="flex-1">
+                      <div class="font-medium text-stone-500">Not yet / Financing needed</div>
+                      <div class="text-xs text-stone-400">This requires immediate liquidity</div>
                     </div>
+                  </label>
                 </div>
-            </div>
-
-            <!-- FORMSPREE FORM - Alle Daten werden hier gesammelt und gesendet -->
-            <form id="qualForm" class="space-y-6" action="https://formspree.io/f/xbdareoj" method="POST">
+              </div>
+              
+              <!-- Step 2: Timeline -->
+              <div class="form-step hidden" id="step2">
+                <label class="block text-sm font-medium text-stone-700 mb-3">
+                  When do you want to close?
+                </label>
+                <div class="grid grid-cols-2 gap-3">
+                  <label class="relative flex flex-col items-center p-4 border-2 border-stone-200 rounded-lg cursor-pointer hover:border-gold transition-all" onclick="handleStep2('this-week')">
+                    <input type="radio" name="timeline" value="this-week" class="sr-only" required>
+                    <div class="w-8 h-8 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="font-medium text-stone-900 text-sm">This Week</div>
+                  </label>
+                  
+                  <label class="relative flex flex-col items-center p-4 border-2 border-stone-200 rounded-lg cursor-pointer hover:border-gold transition-all" onclick="handleStep2('this-month')">
+                    <input type="radio" name="timeline" value="this-month" class="sr-only">
+                    <div class="w-8 h-8 bg-stone-100 rounded-full flex items-center justify-center text-stone-400 mb-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div class="font-medium text-stone-900 text-sm">This Month</div>
+                  </label>
+                </div>
+                <button type="button" onclick="prevStep(1)" class="mt-4 text-xs text-stone-400 hover:text-stone-600 uppercase tracking-widest">← Back</button>
+              </div>
+              
+              <!-- Step 3: Contact Info -->
+              <div class="form-step hidden" id="step3">
+                <div class="space-y-4">
+                  <!-- Floating Label Input -->
+                  <div class="relative">
+                    <input type="text" name="full_name" id="fullName" required placeholder=" " 
+                           class="floating-input block w-full px-4 py-3 text-stone-900 bg-white border-2 border-stone-200 rounded-lg appearance-none focus:outline-none focus:border-gold transition-all peer">
+                    <label for="fullName" class="absolute text-stone-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-2">
+                      Full Name *
+                    </label>
+                  </div>
+                  
+                  <div class="relative">
+                    <input type="email" name="email" id="email" required placeholder=" " 
+                           class="floating-input block w-full px-4 py-3 text-stone-900 bg-white border-2 border-stone-200 rounded-lg appearance-none focus:outline-none focus:border-gold transition-all peer">
+                    <label for="email" class="absolute text-stone-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-2">
+                      Email Address *
+                    </label>
+                  </div>
+                  
+                  <div class="relative">
+                    <input type="tel" name="whatsapp" id="whatsapp" required placeholder=" " 
+                           class="floating-input block w-full px-4 py-3 text-stone-900 bg-white border-2 border-stone-200 rounded-lg appearance-none focus:outline-none focus:border-gold transition-all peer">
+                    <label for="whatsapp" class="absolute text-stone-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-2">
+                      WhatsApp Number *
+                    </label>
+                  </div>
+                  
+                  <div class="relative">
+                    <select name="payment_method" id="paymentMethod" required
+                            class="floating-input block w-full px-4 py-3 text-stone-900 bg-white border-2 border-stone-200 rounded-lg appearance-none focus:outline-none focus:border-gold transition-all peer">
+                      <option value="" disabled selected></option>
+                      <option value="crypto">Cryptocurrency (USDT/USDC)</option>
+                      <option value="wire">Bank Wire Transfer</option>
+                      <option value="cash">Cash Payment</option>
+                    </select>
+                    <label for="paymentMethod" class="absolute text-stone-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-2">
+                      Preferred Payment *
+                    </label>
+                    <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-stone-400">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                  </div>
+                </div>
                 
-                <!-- Hidden fields für Tracking -->
-                <input type="hidden" name="form_source" value="landing_page_qualification">
-                <input type="hidden" name="submission_date" id="submissionDate">
-                <input type="hidden" name="user_agent" id="userAgent">
-                <input type="hidden" name="page_url" id="pageUrl">
-                
-                <div class="mb-8">
-                    <div class="flex justify-between text-xs uppercase tracking-luxury text-stone-500 mb-2">
-                        <span>Buyer Qualification</span>
-                        <span id="progressText">Step 1 of 3</span>
-                    </div>
-                    <div class="w-full bg-stone-200 h-1">
-                        <div class="bg-gold h-1 w-1/3 transition-all duration-500" id="progressBar"></div>
-                    </div>
-                </div>
-
-                <!-- Step 1: Money -->
-                <div class="form-step" id="step1">
-                    <h2 class="text-2xl font-serif text-stone-900 mb-2">Do you have immediate access to <span class="text-gold italic">$235K</span>?</h2>
-                    <p class="text-stone-500 text-sm mb-6">This eliminates 94% of inquiries. We only speak with qualified buyers ready for immediate closing.</p>
-                    
-                    <div class="space-y-3">
-                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(2); trackEvent('qualification', 'step1', 'funds_ready')">
-                            <input type="radio" name="funds_status" value="ready" class="hidden" required onchange="selectRadio(this)">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <div class="font-serif text-lg text-stone-900">Yes, funds are ready</div>
-                                    <div class="text-xs text-stone-500">Bank or crypto wallet prepared</div>
-                                </div>
-                                <div class="w-6 h-6 rounded-full border-2 border-stone-300 flex items-center justify-center check-indicator">
-                                    <div class="w-3 h-3 rounded-full bg-gold opacity-0 transition-opacity"></div>
-                                </div>
-                            </div>
-                        </label>
-                        
-                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('funds'); trackEvent('qualification', 'step1', 'funds_not_ready')">
-                            <input type="radio" name="funds_status" value="not_ready" class="hidden" disabled>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <div class="font-serif text-lg text-stone-900">Not yet / Need to arrange</div>
-                                    <div class="text-xs text-stone-500">This opportunity requires immediate liquidity</div>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Step 2: Leasehold -->
-                <div class="form-step hidden" id="step2">
-                    <h2 class="text-2xl font-serif text-stone-900 mb-2">Are you comfortable with <span class="text-gold italic">30-year leasehold</span>?</h2>
-                    <p class="text-stone-500 text-sm mb-6">This is the standard structure for foreign property ownership in Bali. Built 2023, so 29 years remaining.</p>
-                    
-                    <div class="space-y-3">
-                        <label class="radio-luxury block p-4 rounded-lg" onclick="nextStep(3); trackEvent('qualification', 'step2', 'leasehold_accepted')">
-                            <input type="radio" name="leasehold_comfort" value="yes" class="hidden" onchange="selectRadio(this)">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <div class="font-serif text-lg text-stone-900">Yes, I understand leasehold</div>
-                                    <div class="text-xs text-stone-500">30 years with extension option standard</div>
-                                </div>
-                                <div class="w-6 h-6 rounded-full border-2 border-stone-300 flex items-center justify-center check-indicator">
-                                    <div class="w-3 h-3 rounded-full bg-gold opacity-0 transition-opacity"></div>
-                                </div>
-                            </div>
-                        </label>
-                        
-                        <label class="radio-luxury block p-4 rounded-lg eliminated" onclick="disqualify('leasehold'); trackEvent('qualification', 'step2', 'leasehold_rejected')">
-                            <input type="radio" name="leasehold_comfort" value="no" class="hidden" disabled>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <div class="font-serif text-lg text-stone-900">I want freehold only</div>
-                                    <div class="text-xs text-stone-500">Not available for foreign buyers in Indonesia</div>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                    
-                    <button type="button" onclick="prevStep(1)" class="mt-4 text-xs uppercase tracking-luxury text-stone-400 hover:text-stone-600">← Back</button>
-                </div>
-
-                <!-- Step 3: Timeline & Payment + Kontaktdaten -->
-                <div class="form-step hidden" id="step3">
-                    <h2 class="text-2xl font-serif text-stone-900 mb-2">When and how do you want to <span class="text-gold italic">close</span>?</h2>
-                    <p class="text-stone-500 text-sm mb-6">Serious buyers only. 2023 build, fully furnished, ready for immediate occupancy.</p>
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Timeline (Critical)</label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this); trackEvent('qualification', 'step3', 'timeline_this_week')">
-                                    <input type="radio" name="timeline" value="this-week" class="hidden" required onchange="selectRadio(this)">
-                                    <div class="font-serif text-lg text-stone-900">This Week</div>
-                                    <div class="text-xs text-stone-500 mt-1">Cash/crypto ready</div>
-                                </label>
-                                
-                                <label class="radio-luxury p-4 rounded-lg text-center" onclick="selectTimeline(this); trackEvent('qualification', 'step3', 'timeline_next_week')">
-                                    <input type="radio" name="timeline" value="next-week" class="hidden" onchange="selectRadio(this)">
-                                    <div class="font-serif text-lg text-stone-900">Next Week</div>
-                                    <div class="text-xs text-stone-500 mt-1">Wire transfer pending</div>
-                                </label>
-                                
-                                <label class="radio-luxury p-4 rounded-lg text-center eliminated">
-                                    <input type="radio" name="timeline" value="2-weeks" class="hidden" disabled>
-                                    <div class="font-serif text-lg text-stone-900">2 Weeks</div>
-                                    <div class="text-xs text-stone-500 mt-1">Too late</div>
-                                </label>
-                                
-                                <label class="radio-luxury p-4 rounded-lg text-center eliminated">
-                                    <input type="radio" name="timeline" value="later" class="hidden" disabled>
-                                    <div class="font-serif text-lg text-stone-900">Later</div>
-                                    <div class="text-xs text-stone-500 mt-1">Not available</div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="pt-4">
-                            <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Payment Method</label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this); trackEvent('qualification', 'step3', 'payment_crypto')">
-                                    <input type="radio" name="payment_method" value="crypto" class="hidden" required onchange="selectRadio(this)">
-                                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium text-stone-900">Crypto</div>
-                                        <div class="text-xs text-stone-500">Fastest closing</div>
-                                    </div>
-                                </label>
-                                
-                                <label class="radio-luxury p-4 rounded-lg flex items-center gap-3" onclick="selectRadio(this); trackEvent('qualification', 'step3', 'payment_bank')">
-                                    <input type="radio" name="payment_method" value="bank" class="hidden" onchange="selectRadio(this)">
-                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 0 003 3z"/></svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium text-stone-900">Bank Wire</div>
-                                        <div class="text-xs text-stone-500">Traditional</div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Kontaktdaten -->
-                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-200">
-                            <div>
-                                <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Full Name *</label>
-                                <input type="text" name="full_name" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="John Doe" onfocus="trackEvent('form', 'focus', 'name_field')">
-                            </div>
-                            <div>
-                                <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">WhatsApp *</label>
-                                <input type="tel" name="whatsapp" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="+1 234 567 890">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Email *</label>
-                            <input type="email" name="email" required class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="john@example.com">
-                        </div>
-
-                        <!-- Zusätzliche optionale Felder -->
-                        <div>
-                            <label class="block text-xs uppercase tracking-luxury text-stone-500 mb-2">Message (Optional)</label>
-                            <textarea name="message" rows="3" class="input-luxury w-full px-4 py-3 text-stone-800" placeholder="Tell us about your plans..."></textarea>
-                        </div>
-
-                        <button type="submit" id="submitBtn" class="w-full py-4 bg-gold hover:bg-gold-dark text-white font-medium uppercase tracking-luxury text-sm transition-all shadow-luxury mt-4">
-                            View Full Property Details
-                        </button>
-                        
-                        <!-- Loading State -->
-                        <div id="formLoading" class="hidden text-center py-4">
-                            <div class="inline-block w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
-                            <p class="text-stone-500 text-sm mt-2">Sending your qualification...</p>
-                        </div>
-                    </div>
-                    
-                    <button type="button" onclick="prevStep(2)" class="mt-4 text-xs uppercase tracking-luxury text-stone-400 hover:text-stone-600">← Back</button>
-                </div>
+                <button type="button" onclick="prevStep(2)" class="mt-4 text-xs text-stone-400 hover:text-stone-600 uppercase tracking-widest">← Back</button>
+              </div>
+              
+              <!-- Submit Button -->
+              <button type="submit" id="submitBtn" class="w-full py-4 bg-gold hover:bg-gold-dark text-white font-semibold uppercase tracking-widest text-sm transition-all shadow-lg hover:shadow-xl rounded-lg flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed">
+                <span>Get Full Exposé</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              
+              <!-- Loading State -->
+              <div id="formLoading" class="hidden text-center py-4">
+                <div class="inline-block w-6 h-6 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-stone-500 text-sm mt-2">Processing your inquiry...</p>
+              </div>
             </form>
             
-            <!-- Success Message (wird nach Absenden angezeigt) -->
-            <div id="successMessage" class="success-message bg-white p-8 shadow-luxury border border-gold text-center">
-                <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <h3 class="text-2xl font-serif text-stone-900 mb-2">Qualification Submitted</h3>
-                <p class="text-stone-600 mb-6">Thank you. Loading property details...</p>
+            <!-- Success State -->
+            <div id="successState" class="hidden text-center py-8">
+              <div class="w-20 h-20 mx-auto mb-4 relative">
+                <svg class="w-full h-full" viewBox="0 0 52 52">
+                  <circle class="success-circle" cx="26" cy="26" r="25" fill="none" stroke="#c9a961" stroke-width="2"/>
+                  <path class="success-check" fill="none" stroke="#c9a961" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-serif text-stone-900 mb-2">Inquiry Submitted</h3>
+              <p class="text-stone-600 mb-4">Check your email for the full exposé within 5 minutes.</p>
+              <div class="bg-gold/10 border border-gold/30 rounded-lg p-4 text-sm text-stone-700">
+                <strong>Next Step:</strong> Our team will contact you via WhatsApp within 24 hours.
+              </div>
             </div>
+            
+            <p class="text-xs text-stone-400 text-center mt-4">
+              🔒 Your information is secure. We respect your privacy.
+            </p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden lg:block">
+      <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+  </section>
 
-    <!-- SECTION 2: PROPERTY DETAILS (Hidden until qualified) -->
-    <section id="propertyDetails" class="hidden bg-white texture-overlay">
+  <!-- SOCIAL PROOF BAR -->
+  <section class="bg-white border-b border-stone-200 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap justify-center items-center gap-8 text-stone-400 text-xs uppercase tracking-widest">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Featured on Bali Property Guide</span>
+        </div>
+        <div class="hidden sm:block w-px h-4 bg-stone-300"></div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>Built by European Developer</span>
+        </div>
+        <div class="hidden sm:block w-px h-4 bg-stone-300"></div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Verified Legal Structure</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT HIGHLIGHTS (Sticky Nav Target) -->
+  <section class="py-20 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="text-gold text-xs uppercase tracking-widest font-semibold">Why Invest</span>
+        <h2 class="text-4xl font-serif text-stone-900 mt-2">Investment Highlights</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="invest-card bg-white p-8 rounded-lg border border-stone-200 text-center">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <div class="text-4xl font-serif text-gold mb-2">15%</div>
+          <h3 class="font-semibold text-stone-900 mb-2">Annual ROI</h3>
+          <p class="text-sm text-stone-600">Proven rental returns in Canggu's premium market</p>
+        </div>
         
-        <!-- Hero Image -->
-        <div class="relative h-[70vh] overflow-hidden">
-            <img src="/public/hero-main.jpg" 
-                 alt="The Loft Padonan" 
-                 class="w-full h-full object-cover"
-                 onerror="this.src='/public/hero-loft.jpg'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
-                <div class="max-w-7xl mx-auto">
-                    <span class="text-xs uppercase tracking-luxury text-gold mb-2 block">Padonan, Canggu</span>
-                    <h2 class="text-5xl md:text-7xl font-serif font-light mb-4">Industrial Luxury<br>in Bali</h2>
-                    <p class="text-xl font-light max-w-2xl">2023 built. 120m² of curated living space where European craftsmanship meets tropical serenity.</p>
-                </div>
-            </div>
+        <div class="invest-card bg-white p-8 rounded-lg border border-stone-200 text-center">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="text-4xl font-serif text-gold mb-2">30+</div>
+          <h3 class="font-semibold text-stone-900 mb-2">Years Leasehold</h3>
+          <p class="text-sm text-stone-600">Built 2023 with extension options available</p>
         </div>
-
-        <!-- Key Specs Grid -->
-        <div class="bg-stone-900 text-white py-12 border-b border-stone-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-                    <div class="spec-card bg-stone-800 p-4 border-stone-700">
-                        <div class="text-xs uppercase tracking-luxury text-stone-400 mb-1">Location</div>
-                        <div class="text-xl font-serif text-white">Padonan</div>
-                    </div>
-                    <div class="spec-card bg-stone-800 p-4 border-stone-700">
-                        <div class="text-xs uppercase tracking-luxury text-stone-400 mb-1">Year Built</div>
-                        <div class="text-xl font-serif text-gold">2023</div>
-                    </div>
-                    <div class="spec-card bg-stone-800 p-4 border-stone-700">
-                        <div class="text-xs uppercase tracking-luxury text-stone-400 mb-1">Land Size</div>
-                        <div class="text-xl font-serif text-white">1.8 Are</div>
-                    </div>
-                    <div class="spec-card bg-stone-800 p-4 border-stone-700">
-                        <div class="text-xs uppercase tracking-luxury text-stone-400 mb-1">Building</div>
-                        <div class="text-xl font-serif text-gold">120 m²</div>
-                    </div>
-                    <div class="spec-card bg-stone-800 p-4 border-stone-700">
-                        <div class="text-xs uppercase tracking-luxury text-stone-400 mb-1">Status</div>
-                        <div class="text-xl font-serif text-white">Leasehold</div>
-                        <div class="text-xs text-stone-500">30 years</div>
-                    </div>
-                    <div class="spec-card bg-stone-800 p-4 border-gold bg-gold/10">
-                        <div class="text-xs uppercase tracking-luxury text-gold mb-1">Furnished</div>
-                        <div class="text-xl font-serif text-white">Fully</div>
-                        <div class="text-xs text-stone-400">Turnkey</div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="invest-card bg-white p-8 rounded-lg border border-stone-200 text-center">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <div class="text-4xl font-serif text-gold mb-2">100%</div>
+          <h3 class="font-semibold text-stone-900 mb-2">Management Included</h3>
+          <p class="text-sm text-stone-600">Optional full-service rental management</p>
         </div>
-
-        <!-- Property Info -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-xs uppercase tracking-luxury text-gold font-semibold">The Property</span>
-                    <h3 class="text-4xl font-serif font-light mt-4 mb-6 text-stone-900">Where Berlin Design<br>Meets <span class="text-gold italic">Bali Soul</span></h3>
-                    
-                    <p class="text-stone-600 leading-relaxed mb-6 font-light">
-                        This is not just a property. It is a statement. A 120m² industrial loft built in 2023 on 1.8 are of land in Padonan, Canggu. Crafted with European precision, featuring custom steelwork, double-glazed windows, and a sound system that transforms your living space into an experience.
-                    </p>
-                    
-                    <p class="text-stone-600 leading-relaxed font-light">
-                        Built by an owner who cared—not a developer who cut corners. Every detail has been thoughtfully considered, from the marble kitchen to the custom pipe-leg dining table. <span class="font-medium text-stone-900">Fully furnished and turnkey ready.</span> This is the only unit of its kind in Canggu.
-                    </p>
-
-                    <div class="mt-8 inline-block bg-gold/10 px-6 py-3 border border-gold">
-                        <span class="text-3xl font-serif italic text-gold">$235,000</span>
-                        <span class="text-sm text-stone-600 ml-2">Offers Accepted</span>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <img src="/public/living-space.jpg" 
-                         alt="Living Space" 
-                         class="w-full shadow-luxury"
-                         onerror="this.src='/public/dining-table.jpg'">
-                    <div class="absolute -bottom-4 -left-4 bg-white p-4 shadow-luxury border border-stone-100">
-                        <div class="text-xs uppercase tracking-luxury text-stone-500">Built</div>
-                        <div class="text-2xl font-serif text-gold">2023</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Investment Stats -->
-        <div class="bg-stone-50 py-16 border-y border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12">
-                    <h3 class="text-4xl font-serif font-light text-stone-900 mb-2">Investment <span class="text-gold italic">Potential</span></h3>
-                    <p class="text-stone-500 font-light">Proven returns from day one</p>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div class="text-center p-6 bg-white border border-stone-200">
-                        <div class="text-4xl font-serif italic text-gold mb-2">11%</div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500">Annual ROI</div>
-                    </div>
-                    <div class="text-center p-6 bg-white border border-stone-200">
-                        <div class="text-4xl font-serif italic text-gold mb-2">$2,500</div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500">Monthly Income</div>
-                    </div>
-                    <div class="text-center p-6 bg-white border border-stone-200">
-                        <div class="text-4xl font-serif italic text-gold mb-2">80%</div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500">Occupancy Rate</div>
-                    </div>
-                    <div class="text-center p-6 bg-white border border-stone-200">
-                        <div class="text-4xl font-serif italic text-gold mb-2">30yr</div>
-                        <div class="text-xs uppercase tracking-luxury text-stone-500">Leasehold</div>
-                    </div>
-                </div>
-
-                <div class="mt-12 bg-white p-8 border border-stone-200">
-                    <div class="grid md:grid-cols-3 gap-8 text-center">
-                        <div>
-                            <div class="text-3xl font-serif text-stone-900 mb-1">$30,000</div>
-                            <div class="text-sm text-stone-500 uppercase tracking-luxury">Annual Gross</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-serif text-stone-900 mb-1">$18-20K</div>
-                            <div class="text-sm text-stone-500 uppercase tracking-luxury">Net Estimate</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-serif text-gold mb-1">2023</div>
-                            <div class="text-sm text-stone-500 uppercase tracking-luxury">Recent Build</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Features -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-serif font-light text-stone-900">Thoughtfully <span class="text-gold italic">Designed</span></h3>
-                <p class="text-stone-500 font-light mt-4">Every detail of this 2023 build</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Custom Craftsmanship</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">Every detail hand-selected and custom-built. The pipe table, marble kitchen, and integrated sound system.</p>
-                </div>
-
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Premium Sound System</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">Concert-quality audio installation that rivals Berlin clubs. Experience music like never before.</p>
-                </div>
-
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Double-Glazed Windows</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">European-standard soundproof windows. Rare in Bali. Sleep peacefully, always.</p>
-                </div>
-
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Turnkey Ready</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">Fully furnished with custom pieces. All furniture and sound system included. Just bring your suitcase.</p>
-                </div>
-
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Income Potential</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">Proven $2,000-3,000 monthly rental income. 80% occupancy rate with optional management.</p>
-                </div>
-
-                <div class="bg-stone-50 p-8 border border-stone-100 hover:shadow-luxury transition-all">
-                    <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mb-6 text-gold">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h4 class="text-xl font-serif text-stone-900 mb-3">Crypto Friendly</h4>
-                    <p class="text-stone-600 font-light text-sm leading-relaxed">USDT/USDC accepted. Notary and conversion handled. Close in 2 months, not 6.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Payment Options -->
-        <div class="bg-stone-900 text-white py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-16">
-                    <h3 class="text-4xl font-serif font-light mb-4">Payment <span class="text-gold italic">Options</span></h3>
-                    <p class="text-stone-400 font-light">Flexible closing for qualified buyers</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Crypto Option -->
-                    <div class="relative border border-gold p-8 bg-stone-800">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold text-black text-xs uppercase tracking-luxury px-4 py-1">Recommended</div>
-                        <h4 class="text-sm uppercase tracking-luxury text-stone-400 mb-4">Cryptocurrency</h4>
-                        <div class="text-4xl font-serif text-white mb-2">$235,000</div>
-                        <div class="text-sm text-stone-400 mb-6">USDT / USDC</div>
-                        <ul class="space-y-3 text-sm text-stone-300 mb-8">
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Fastest close</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> No bank delays</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Notary included</li>
-                        </ul>
-                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'crypto_option')" class="w-full py-3 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors">Select Option</button>
-                    </div>
-
-                    <!-- Cash Option -->
-                    <div class="border border-stone-700 p-8">
-                        <h4 class="text-sm uppercase tracking-luxury text-stone-400 mb-4">Cash Payment</h4>
-                        <div class="text-4xl font-serif text-white mb-2">$235,000</div>
-                        <div class="text-sm text-stone-400 mb-6">USD Wire Transfer</div>
-                        <ul class="space-y-3 text-sm text-stone-300 mb-8">
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Wire transfer</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> 2-month close</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Secure escrow</li>
-                        </ul>
-                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'bank_option')" class="w-full py-3 border border-white text-white font-medium uppercase tracking-luxury text-sm hover:bg-white hover:text-black transition-colors">Select Option</button>
-                    </div>
-
-                    <!-- Offers -->
-                    <div class="border border-stone-700 p-8 bg-gold/5">
-                        <h4 class="text-sm uppercase tracking-luxury text-gold mb-4">Offers Accepted</h4>
-                        <div class="text-4xl font-serif text-white mb-2">$235,000+</div>
-                        <div class="text-sm text-stone-400 mb-6">Serious inquiries only</div>
-                        <ul class="space-y-3 text-sm text-stone-300 mb-8">
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> 2023 build</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> Fully furnished</li>
-                            <li class="flex items-center gap-2"><span class="text-gold">✓</span> 120m² on 1.8 are</li>
-                        </ul>
-                        <button onclick="scrollToContact(); trackEvent('cta', 'click', 'make_offer')" class="w-full py-3 border border-gold text-gold font-medium uppercase tracking-luxury text-sm hover:bg-gold hover:text-black transition-colors">Make Offer</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-xs uppercase tracking-luxury text-gold font-semibold">Neighborhood</span>
-                    <h3 class="text-5xl font-serif font-light mt-4 mb-6 text-stone-900">Padonan,<br><span class="text-gold italic">Canggu</span></h3>
-                    
-                    <p class="text-stone-600 leading-relaxed mb-8 font-light">
-                        Located in the sought-after area of Padonan, North Kuta. Quiet street with walking distance to everything that matters in Canggu's vibrant scene. The perfect balance of tranquility and access.
-                    </p>
-
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-serif text-stone-900">5min</div>
-                                <div class="text-sm text-stone-500">Mason, Crate Cafe</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-serif text-stone-900">10min</div>
-                                <div class="text-sm text-stone-500">Batu Bolong Beach</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-serif text-stone-900">15min</div>
-                                <div class="text-sm text-stone-500">Canggu Community School</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-serif text-stone-900">45min</div>
-                                <div class="text-sm text-stone-500">Ngurah Rai Airport</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="aspect-square bg-stone-200">
-                    <img src="/public/neighborhood-cafe.jpg" 
-                         alt="Padonan Canggu" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='/public/gallery-terrace.jpg'">
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery Section -->
-        <div class="bg-stone-100 py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-12">
-                    <h3 class="text-4xl font-serif font-light text-stone-900 mb-4">Gallery</h3>
-                    <p class="text-stone-500 font-light">120m² of industrial luxury on 1.8 are</p>
-                </div>
-
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Gallery items generated by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Final CTA -->
-        <div id="contactSection" class="bg-stone-900 text-white py-20">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-                <h3 class="text-4xl font-serif font-light mb-6">Ready to <span class="text-gold italic">close</span>?</h3>
-                <p class="text-stone-400 mb-4 font-light">Padonan, Canggu • 2023 • 120m² • Fully Furnished</p>
-                <p class="text-3xl font-serif text-gold mb-8">$235,000 — Offers Accepted</p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/YOURNUMBER" onclick="trackEvent('conversion', 'whatsapp_click', 'final_cta')" class="px-8 py-4 bg-gold text-black font-medium uppercase tracking-luxury text-sm hover:bg-gold-dark transition-colors inline-flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Contact via WhatsApp
-                    </a>
-                    <button onclick="scrollToTop()" class="px-8 py-4 border border-white text-white font-medium uppercase tracking-luxury text-sm hover:bg-white hover:text-black transition-colors">
-                        Back to Top
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="bg-black text-stone-500 py-8 text-center text-xs uppercase tracking-luxury">
-            <p>© 2026 The Loft Padonan. Direct Owner Sale. • 120m² • 2023 Build • Fully Furnished</p>
-        </footer>
-    </section>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightboxImg" src="" alt="Gallery Image">
+      </div>
     </div>
+  </section>
 
-    <!-- Disqualify Modal -->
-    <div id="disqualifyModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white p-8 max-w-md w-full text-center shadow-2xl">
-            <div class="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </div>
-            <h3 class="text-2xl font-serif text-stone-900 mb-2">This isn't for you</h3>
-            <p class="text-stone-600 mb-6" id="disqualifyText">This opportunity requires immediate liquidity.</p>
-            <button onclick="closeModal()" class="px-6 py-2 bg-stone-200 text-stone-700 uppercase tracking-luxury text-xs hover:bg-stone-300 transition-colors">
-                Close
-            </button>
-        </div>
+  <!-- STICKY CTA BUTTON -->
+  <div id="stickyCta" class="sticky-cta bg-white border-t border-stone-200 p-4 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="hidden sm:block">
+        <div class="text-sm font-medium text-stone-900">The Loft Padonan — $235,000</div>
+        <div class="text-xs text-stone-500">120m² • 15% ROI • Fully Furnished</div>
+      </div>
+      <a href="#investment-form" class="w-full sm:w-auto px-8 py-3 bg-gold hover:bg-gold-dark text-white font-semibold uppercase tracking-widest text-sm transition-all rounded-lg text-center">
+        Request Exposé Now
+      </a>
     </div>
+  </div>
 
-    <script>
-        // ==========================================
-        // BACKGROUND CONFIGURATION - EDIT HERE
-        // ==========================================
-        // Change these URLs to use different images for each step
-        const backgroundConfig = {
-            step1: '/public/hero-main.jpg',      // Money question background
-            step2: '/public/living-space.jpg',   // Leasehold question background  
-            step3: '/public/bedroom.jpg',        // Timeline question background
-            default: '/public/hero-loft.jpg'     // Fallback background
-        };
-
-        // Alternative: Use Unsplash images for testing
-        // const backgroundConfig = {
-        //     step1: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920',
-        //     step2: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920',
-        //     step3: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920',
-        //     default: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920'
-        // };
-
-        // ==========================================
-        // BACKGROUND MANAGEMENT
-        // ==========================================
-        function updateBackground(step) {
-            // Hide all backgrounds
-            document.querySelectorAll('.bg-image').forEach(bg => {
-                bg.classList.remove('active');
-            });
-            
-            // Show the appropriate background
-            const bgId = `bg-step${step}`;
-            const bgElement = document.getElementById(bgId);
-            if (bgElement) {
-                bgElement.classList.add('active');
-            } else {
-                // Fallback to default
-                document.getElementById('bg-default').classList.add('active');
-            }
+  <!-- Google Ads Conversion Script (CRITICAL FIX) -->
+  <script>
+    // ==========================================
+    // GOOGLE ADS CONVERSION TRACKING - FIXED
+    // ==========================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('leadForm');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      // Set tracking fields
+      document.getElementById('submissionDate').value = new Date().toISOString();
+      document.getElementById('pageUrl').value = window.location.href;
+      
+      // Form submission handler with validation
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate current step
+        const currentStepEl = document.querySelector('.form-step:not(.hidden)');
+        const requiredFields = currentStepEl.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          if (!field.value) {
+            isValid = false;
+            field.classList.add('border-red-500');
+            setTimeout(() => field.classList.remove('border-red-500'), 3000);
+          }
+        });
+        
+        if (!isValid) {
+          console.log('Validation failed - Conversion NOT fired');
+          return;
         }
-
-        // Initialize backgrounds from config
-        function initBackgrounds() {
-            document.getElementById('bg-step1').style.backgroundImage = `url('${backgroundConfig.step1}')`;
-            document.getElementById('bg-step2').style.backgroundImage = `url('${backgroundConfig.step2}')`;
-            document.getElementById('bg-step3').style.backgroundImage = `url('${backgroundConfig.step3}')`;
-            document.getElementById('bg-default').style.backgroundImage = `url('${backgroundConfig.default}')`;
-        }
-
-        // Tracking Helper Function
-        function trackEvent(category, action, label) {
-            // Google Analytics 4 Event
+        
+        // Show loading
+        submitBtn.classList.add('hidden');
+        document.getElementById('formLoading').classList.remove('hidden');
+        
+        try {
+          // Submit to Formspree
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            // ==========================================
+            // FIRE GOOGLE ADS CONVERSION - ONLY ON SUCCESS
+            // ==========================================
             if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    'event_category': category,
-                    'event_label': label,
-                    'value': 1
-                });
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17935774896/4mi1COPM5PMbELDpuOhC',
+                'value': 235000.0,
+                'currency': 'USD',
+                'transaction_id': Date.now().toString()
+              });
+              
+              // Also fire GA4 generate_lead event
+              gtag('event', 'generate_lead', {
+                'currency': 'USD',
+                'value': 235000.0,
+                'form_location': 'hero_section',
+                'form_id': 'leadForm'
+              });
+              
+              console.log('✅ Google Ads Conversion fired successfully');
+            } else {
+              console.error('❌ gtag not loaded');
             }
             
-            // Meta Pixel Event
-            if (typeof fbq !== 'undefined') {
-                fbq('trackCustom', action, {
-                    content_category: category,
-                    content_name: label
-                });
-            }
+            // Show success state
+            form.classList.add('hidden');
+            document.getElementById('formLoading').classList.add('hidden');
+            document.getElementById('successState').classList.remove('hidden');
             
-            console.log('Track:', category, action, label);
-        }
-
-        // Form Tracking
-        function initTracking() {
-            // Setze Hidden Fields
-            document.getElementById('submissionDate').value = new Date().toISOString();
-            document.getElementById('userAgent').value = navigator.userAgent;
-            document.getElementById('pageUrl').value = window.location.href;
-            
-            // Track Page View
-            trackEvent('page', 'view', 'landing_page');
-        }
-
-        // Gallery Images
-        const galleryImages = [
-            '/public/balcony.jpg',
-            '/public/bathroom.jpg',
-            '/public/bedroom.jpg',
-            '/public/dining-table.jpg',
-            '/public/gallery-bedroom.jpg',
-            '/public/gallery-dining.jpg',
-            '/public/gallery-kitchen.jpg',
-            '/public/gallery-terrace.jpg',
-            '/public/hero-loft.jpg',
-            '/public/hero-main.jpg',
-            '/public/kitchen-detail.jpg',
-            '/public/living-space.jpg',
-            '/public/neighborhood-cafe.jpg'
-        ];
-
-        // Generate Gallery
-        const galleryGrid = document.getElementById('galleryGrid');
-        galleryImages.forEach((src, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.onclick = () => {
-                openLightbox(src);
-                trackEvent('gallery', 'click', 'image_' + (index + 1));
-            };
-            
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = `The Loft ${index + 1}`;
-            img.loading = 'lazy';
-            img.onerror = function() {
-                const fallbacks = ['/public/hero-main.jpg', '/public/living-space.jpg', '/public/dining-table.jpg'];
-                const randomFallback = fallbacks[Math.floor(Math.random() * fallbacks.length)];
-                if (this.src !== randomFallback) {
-                    this.src = randomFallback;
-                }
-            };
-            
-            item.appendChild(img);
-            galleryGrid.appendChild(item);
-        });
-
-        // Lightbox Functions
-        function openLightbox(src) {
-            document.getElementById('lightboxImg').src = src;
-            document.getElementById('lightbox').classList.add('active');
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Form Steps
-        let currentStep = 1;
-        
-        function nextStep(step) {
-            document.getElementById(`step${currentStep}`).classList.add('hidden');
-            document.getElementById(`step${step}`).classList.remove('hidden');
-            currentStep = step;
-            updateProgress();
-            updateBackground(step); // Change background image
-        }
-        
-        function prevStep(step) {
-            document.getElementById(`step${currentStep}`).classList.add('hidden');
-            document.getElementById(`step${step}`).classList.remove('hidden');
-            currentStep = step;
-            updateProgress();
-            updateBackground(step); // Change background image
-        }
-        
-        function updateProgress() {
-            const progress = (currentStep / 3) * 100;
-            document.getElementById('progressBar').style.width = `${progress}%`;
-            document.getElementById('progressText').textContent = `Step ${currentStep} of 3`;
-        }
-        
-        function selectRadio(radio) {
-            const name = radio.name;
-            document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-                r.closest('.radio-luxury').classList.remove('selected');
-                const indicator = r.closest('.radio-luxury').querySelector('.check-indicator div');
-                if (indicator) indicator.style.opacity = '0';
+            // Track in console for debugging
+            console.log('Lead generated:', {
+              timestamp: new Date().toISOString(),
+              url: window.location.href,
+              formData: Object.fromEntries(new FormData(form))
             });
-            radio.closest('.radio-luxury').classList.add('selected');
-            const indicator = radio.closest('.radio-luxury').querySelector('.check-indicator div');
-            if (indicator) indicator.style.opacity = '1';
-        }
-        
-        function selectTimeline(el) {
-            // Visual feedback only
-        }
-        
-        function disqualify(reason) {
-            const texts = {
-                'funds': 'This opportunity requires immediate liquidity of $235K. When you have funds ready, check back.',
-                'leasehold': 'Foreign ownership in Bali requires leasehold structure. This is non-negotiable.'
-            };
-            document.getElementById('disqualifyText').textContent = texts[reason];
-            document.getElementById('disqualifyModal').classList.remove('hidden');
-            document.getElementById('disqualifyModal').classList.add('flex');
-        }
-        
-        function closeModal() {
-            document.getElementById('disqualifyModal').classList.add('hidden');
-            document.getElementById('disqualifyModal').classList.remove('flex');
-        }
-        
-        // Formspree Form Handling
-        document.getElementById('qualForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
             
-            const form = e.target;
-            const submitBtn = document.getElementById('submitBtn');
-            const loadingDiv = document.getElementById('formLoading');
-            const successDiv = document.getElementById('successMessage');
-            
-            // UI State: Loading
-            submitBtn.classList.add('hidden');
-            loadingDiv.classList.remove('hidden');
-            
-            // Track Form Submit Start
-            trackEvent('form', 'submit', 'qualification_started');
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    // Track Success
-                    trackEvent('form', 'submit_success', 'qualification_complete');
-                    
-                    // Meta Pixel Lead Event
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead', {
-                            content_name: 'The Loft Qualification',
-                            value: 235000,
-                            currency: 'USD'
-                        });
-                    }
-                    
-                    // Show Success
-                    loadingDiv.classList.add('hidden');
-                    successDiv.classList.add('active');
-                    
-                    // Redirect to Property Details after delay
-                    setTimeout(() => {
-                        document.getElementById('qualification').style.display = 'none';
-                        document.getElementById('propertyDetails').classList.remove('hidden');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        
-                        // Update urgency bar
-                        document.querySelector('.fixed.top-0').innerHTML = `
-                            <div class="max-w-7xl mx-auto flex justify-between items-center text-xs uppercase tracking-luxury">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
-                                    Qualified Buyer Viewing • Padonan, Canggu
-                                </div>
-                                <div class="font-bold text-gold">$235,000 — Offers Accepted</div>
-                            </div>
-                        `;
-                        
-                        // Track Page View of Property Details
-                        trackEvent('page', 'view', 'property_details');
-                    }, 1500);
-                    
-                } else {
-                    throw new Error('Form submission failed');
-                }
-                
-            } catch (error) {
-                console.error('Error:', error);
-                trackEvent('form', 'submit_error', error.message);
-                
-                // Reset UI
-                loadingDiv.classList.add('hidden');
-                submitBtn.classList.remove('hidden');
-                submitBtn.textContent = 'Error - Try Again';
-                
-                alert('There was an error submitting your form. Please try again or contact us directly via WhatsApp.');
-            }
-        });
-
-        function scrollToContact() {
-            document.getElementById('contactSection').scrollIntoView({ behavior: 'smooth' });
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form error:', error);
+          submitBtn.classList.remove('hidden');
+          document.getElementById('formLoading').classList.add('hidden');
+          submitBtn.textContent = 'Error - Try Again';
         }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+    
+    // ==========================================
+    // FORM STEP LOGIC
+    // ==========================================
+    let currentStep = 1;
+    
+    function updateProgress(step) {
+      const percent = (step / 3) * 100;
+      document.getElementById('formProgress').style.width = percent + '%';
+      document.getElementById('stepIndicator').textContent = step;
+      document.getElementById('progressPercent').textContent = Math.round(percent) + '%';
+      
+      // Update submit button text
+      const submitBtn = document.getElementById('submitBtn');
+      if (step === 3) {
+        submitBtn.innerHTML = '<span>Get Full Exposé</span><svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>';
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.innerHTML = '<span>Continue</span><svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>';
+        submitBtn.disabled = true;
+      }
+    }
+    
+    function handleStep1(radio) {
+      // Visual feedback
+      document.querySelectorAll('input[name="investment_ready"]').forEach(r => {
+        r.closest('label').classList.remove('border-gold', 'bg-gold/5');
+        r.closest('label').querySelector('.check-circle div').classList.add('opacity-0');
+      });
+      radio.closest('label').classList.add('border-gold', 'bg-gold/5');
+      radio.closest('label').querySelector('.check-circle div').classList.remove('opacity-0');
+      
+      // Auto-advance after short delay
+      setTimeout(() => {
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+        currentStep = 2;
+        updateProgress(2);
+      }, 400);
+    }
+    
+    function handleStep2(timeline) {
+      // Visual selection
+      document.querySelectorAll('input[name="timeline"]').forEach(r => {
+        r.closest('label').classList.remove('border-gold', 'bg-gold/5');
+      });
+      event.currentTarget.classList.add('border-gold', 'bg-gold/5');
+      
+      setTimeout(() => {
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step3').classList.remove('hidden');
+        currentStep = 3;
+        updateProgress(3);
+      }, 300);
+    }
+    
+    function prevStep(step) {
+      document.getElementById('step' + currentStep).classList.add('hidden');
+      document.getElementById('step' + step).classList.remove('hidden');
+      currentStep = step;
+      updateProgress(step);
+    }
+    
+    // Initialize
+    updateProgress(1);
+    document.getElementById('submitBtn').disabled = true;
+    
+    // ==========================================
+    // STICKY CTA LOGIC
+    // ==========================================
+    const stickyCta = document.getElementById('stickyCta');
+    const formSection = document.getElementById('investment-form');
+    
+    window.addEventListener('scroll', () => {
+      const formRect = formSection.getBoundingClientRect();
+      if (formRect.bottom < 0) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            initBackgrounds(); // Set up background images
-            initTracking();
-            
-            // GSAP Animations
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-            }
-        });
-    </script>
+      });
+    });
+    
+    // Countdown Timer
+    function updateCountdown() {
+      const now = new Date();
+      const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+      const diff = endOfDay - now;
+      
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      
+      document.getElementById('countdown').textContent = 
+        `Ends in ${hours}h ${minutes}m`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  </script>
 </body>
-</html>   
+</html>
