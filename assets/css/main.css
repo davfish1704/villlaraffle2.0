@@ -22,10 +22,10 @@ body {
 
 /* === MOBILE-FIRST FORM CONTAINER (100vh No-Scroll) === */
 .landing-container {
-  height: 100vh;
-  height: 100dvh; /* Dynamic Viewport für Mobile */
-  max-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: calc(var(--header-height) + 0.5rem) 0.5rem 0.5rem;
+  overflow: clip;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -69,8 +69,7 @@ body {
   border: 1px solid rgba(255,255,255,0.2);
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - var(--header-height) - 2rem);
-  max-height: calc(100dvh - var(--header-height) - 2rem);
+  max-height: calc(100dvh - var(--header-height) - 1.5rem);
   overflow: hidden;
 }
 
@@ -82,7 +81,7 @@ body {
 
 .form-body {
   padding: 0 var(--space-mobile);
-  overflow-y: auto; /* Nur hier scrollt es, wenn absolut nötig */
+  overflow: hidden;
   overflow-x: hidden;
   flex: 1;
   display: flex;
@@ -162,10 +161,24 @@ body {
   display: none;
   animation: fadeIn 0.4s ease;
   flex: 1;
-  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .form-step.active { display: flex; }
+
+.question-step {
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.question-step h2 {
+  text-align: center;
+}
+
+.contact-step {
+  justify-content: flex-start;
+  padding-top: 0.25rem;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -330,4 +343,22 @@ body {
 @media (min-width: 768px) {
   .form-card { max-height: 800px; }
   .landing-container { align-items: center; justify-content: center; }
+  .form-body { overflow-y: auto; }
+  .question-step h2 { text-align: left; }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 2.25rem;
+    --sneak-peek-height: 76px;
+  }
+
+  .form-header h1 {
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+
+  .radio-card {
+    margin-bottom: 0.6rem;
+  }
 }
