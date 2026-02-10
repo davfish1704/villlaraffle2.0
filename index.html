@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Exclusive Loft in Padonan, Canggu. $235K. 120m². Direct owner sale. 15% ROI. Fully furnished 2023 build.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cangguloftstylecollection.com/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Loft Padonan | Canggu | $235K">
+  <meta property="og:description" content="Industrial luxury in Bali. 120m² furnished loft. Direct owner sale.">
+  <meta property="og:url" content="https://cangguloftstylecollection.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cangguloftstylecollection.com/assets/images/hero-loft.webp">
+  
+  <title>The Loft | Padonan, Canggu | $235K</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind + Custom -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="/assets/images/hero-loft.webp" type="image/webp">
+  
+  <!-- GA4 / GTM -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT4S0Z3Z1L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MT4S0Z3Z1L');
+    gtag('config', 'AW-17935774896');
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- Urgency Bar -->
+  <div class="fixed top-0 w-full z-50 bg-red-700 text-white py-2 px-4 text-center">
+    <div class="max-w-7xl mx-auto flex justify-between items-center text-[10px] sm:text-xs uppercase tracking-wider font-semibold">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+        </span>
+        Direct Owner Sale — Last Unit
+      </div>
+      <div id="countdown">Closing soon</div>
+    </div>
+  </div>
+
+  <!-- Background Slideshow -->
+  <div class="bg-slideshow" aria-hidden="true">
+    <div class="bg-slide active" style="background-image: url('/assets/images/hero-loft.webp')"></div>
+    <div class="bg-slide" style="background-image: url('/assets/images/step-2.webp')"></div>
+    <div class="bg-slide" style="background-image: url('/assets/images/step-3.webp')"></div>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="landing-container pt-10">
+    
+    <!-- Form Card -->
+    <div class="form-card mx-4">
+      
+      <!-- Header -->
+      <div class="form-header">
+        <h1 class="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">Investment Inquiry</h1>
+        <p class="text-xs text-stone-500">Complete to receive the full exposé</p>
+        
+        <!-- Progress -->
+        <div class="mt-3">
+          <div class="step-indicator">
+            <span>Step <span id="stepNum">1</span>/3</span>
+            <span id="stepPercent">33%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="form-body">
+        
+        <!-- Sneak Peek (immer sichtbar) -->
+        <div class="sneak-peek" id="sneakPeek">
+          <div class="thumb" onclick="openPreview(0)">
+            <img src="/assets/images/bedroom.webp" alt="Bedroom" loading="lazy">
+          </div>
+          <div class="thumb" onclick="openPreview(1)">
+            <img src="/assets/images/kitchen.webp" alt="Kitchen" loading="lazy">
+          </div>
+          <div class="thumb" onclick="openPreview(2)">
+            <img src="/assets/images/living.webp" alt="Living" loading="lazy">
+          </div>
+        </div>
+
+        <form id="leadForm" action="https://formspree.io/f/xbdareoj" method="POST">
+          <input type="hidden" name="form_source" value="landing_v3">
+          <input type="hidden" name="page_url" id="pageUrl">
+          
+          <!-- Step 1: Funds -->
+          <div class="form-step active" data-step="1">
+            <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">Do you have $235K ready to invest?</h2>
+            
+            <div class="radio-card" onclick="selectOption(this, 'funds', 'ready')">
+              <input type="radio" name="funds_status" value="ready" required>
+              <div class="radio-text">
+                <span class="radio-title">Yes, funds available</span>
+                <span class="radio-sub">Bank or crypto wallet prepared</span>
+              </div>
+            </div>
+            
+            <div class="radio-card eliminated">
+              <div class="radio-text">
+                <span class="radio-title text-stone-400">Not yet / Need to arrange</span>
+                <span class="radio-sub">This requires immediate liquidity</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Timeline -->
+          <div class="form-step" data-step="2">
+            <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">When do you want to close?</h2>
+            
+            <div class="radio-card" onclick="selectOption(this, 'timeline', 'this-week')">
+              <input type="radio" name="timeline" value="this-week">
+              <div class="radio-text">
+                <span class="radio-title">This Week</span>
+                <span class="radio-sub">Cash/crypto ready for immediate transfer</span>
+              </div>
+            </div>
+            
+            <div class="radio-card" onclick="selectOption(this, 'timeline', 'next-week')">
+              <input type="radio" name="timeline" value="next-week">
+              <div class="radio-text">
+                <span class="radio-title">Next Week</span>
+                <span class="radio-sub">Wire transfer pending</span>
+              </div>
+            </div>
+            
+            <div class="radio-card eliminated">
+              <div class="radio-text">
+                <span class="radio-title text-stone-400">2+ Weeks</span>
+                <span class="radio-sub">Too late for this opportunity</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Contact -->
+          <div class="form-step" data-step="3">
+            <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">Your Contact Details</h2>
+            
+            <div class="input-group">
+              <input type="text" name="full_name" id="fullName" class="input-field" placeholder=" " required>
+              <label class="input-label" for="fullName">Full Name *</label>
+            </div>
+            
+            <div class="input-group">
+              <input type="email" name="email" id="email" class="input-field" placeholder=" " required>
+              <label class="input-label" for="email">Email Address *</label>
+            </div>
+            
+            <div class="input-group">
+              <input type="tel" name="whatsapp" id="whatsapp" class="input-field" placeholder=" " required>
+              <label class="input-label" for="whatsapp">WhatsApp Number *</label>
+            </div>
+            
+            <div class="input-group">
+              <select name="payment_method" id="payment" class="input-field" required style="padding-right: 2rem;">
+                <option value="" disabled selected></option>
+                <option value="crypto">Cryptocurrency (USDT/USDC)</option>
+                <option value="wire">Bank Wire Transfer</option>
+              </select>
+              <label class="input-label" for="payment">Payment Method *</label>
+            </div>
+          </div>
+
+          <!-- Success State -->
+          <div class="form-step text-center justify-center" data-step="success">
+            <div class="w-16 h-16 mx-auto mb-4 text-green-500">
+              <svg viewBox="0 0 52 52" class="w-full h-full">
+                <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2" class="success-circle" stroke-dasharray="166" stroke-dashoffset="166" style="animation: stroke 0.6s forwards"/>
+                <path fill="none" stroke="currentColor" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="success-check" stroke-dasharray="48" stroke-dashoffset="48" style="animation: stroke 0.3s 0.6s forwards"/>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl text-stone-900 mb-2">Inquiry Received!</h3>
+            <p class="text-sm text-stone-600 mb-4">Redirecting to property details...</p>
+            <button type="button" onclick="window.location.href='/expose.html'" class="btn btn-primary text-sm">
+              Open Exposé Now
+            </button>
+          </div>
+
+          <!-- Loading -->
+          <div id="formLoading" class="hidden text-center py-8">
+            <div class="inline-block w-8 h-8 border-3 border-gold border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-xs text-stone-500 mt-2">Processing...</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer / Buttons -->
+      <div class="form-footer">
+        <div class="flex gap-2" id="buttonContainer">
+          <button type="button" id="backBtn" class="btn btn-secondary hidden px-6" onclick="prevStep()">←</button>
+          <button type="button" id="nextBtn" class="btn btn-primary flex-1" onclick="nextStep()">Continue →</button>
+          <button type="submit" id="submitBtn" class="btn btn-primary flex-1 hidden" onclick="submitForm(event)">
+            Get Full Exposé
+          </button>
+        </div>
+        <p class="text-[10px] text-stone-400 text-center mt-2 flex items-center justify-center gap-1">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          Secure 256-bit SSL encryption
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/4915731329868?text=Hi%2C%20I%20saw%20the%20Canggu%20Loft%20listing%20and%20would%20like%20the%20full%20expos%C3%A9.%20My%20preferred%20closing%20timeline%20is%3A%20" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener"
+     data-event="whatsapp_click"
+     aria-label="Contact via WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black/95 z-[200] hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Preview" class="max-w-full max-h-full object-contain">
+    <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeLightbox()">×</button>
+  </div>
+
+  <script>
+    // State
+    let currentStep = 1;
+    const totalSteps = 3;
+    const bgImages = [
+      '/assets/images/hero-loft.webp',
+      '/assets/images/step-2.webp', 
+      '/assets/images/step-3.webp'
+    ];
+    
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('pageUrl').value = window.location.href;
+      updateUI();
+      startBgSlideshow();
+      startCountdown();
+      
+      // Tracking
+      document.querySelector('.whatsapp-float').addEventListener('click', () => {
+        gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'floating_button' });
+      });
+    });
+    
+    // Background Slideshow
+    function startBgSlideshow() {
+      const slides = document.querySelectorAll('.bg-slide');
+      let idx = 0;
+      setInterval(() => {
+        slides[idx].classList.remove('active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('active');
+      }, 6000);
+    }
+    
+    // Form Logic
+    function selectOption(card, name, value) {
+      // Remove selected from siblings
+      const step = card.closest('.form-step');
+      step.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      card.querySelector('input').checked = true;
+      
+      // Auto-advance on mobile for better UX
+      if (window.innerWidth < 768 && currentStep < 3) {
+        setTimeout(() => nextStep(), 300);
+      }
+    }
+    
+    function nextStep() {
+      if (currentStep === 3) return;
+      
+      // Validation
+      const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      const selected = currentStepEl.querySelector('input[type="radio"]:checked');
+      
+      if (!selected && currentStep < 3) {
+        shake(currentStepEl);
+        return;
+      }
+      
+      currentStep++;
+      updateUI();
+    }
+    
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        updateUI();
+      }
+    }
+    
+    function updateUI() {
+      // Update steps visibility
+      document.querySelectorAll('.form-step').forEach(el => {
+        if (parseInt(el.dataset.step) === currentStep) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+      
+      // Update Progress
+      const percent = Math.round((currentStep / totalSteps) * 100);
+      document.getElementById('progressFill').style.width = percent + '%';
+      document.getElementById('stepNum').textContent = currentStep;
+      document.getElementById('stepPercent').textContent = percent + '%';
+      
+      // Buttons
+      const backBtn = document.getElementById('backBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      
+      backBtn.classList.toggle('hidden', currentStep === 1);
+      
+      if (currentStep === 3) {
+        nextBtn.classList.add('hidden');
+        submitBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.remove('hidden');
+        submitBtn.classList.add('hidden');
+      }
+    }
+    
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('leadForm');
+      
+      // Validation
+      const inputs = form.querySelectorAll('.form-step[data-step="3"] input, .form-step[data-step="3"] select');
+      let valid = true;
+      inputs.forEach(inp => {
+        if (!inp.value) {
+          valid = false;
+          inp.style.borderColor = '#ef4444';
+          setTimeout(() => inp.style.borderColor = '', 2000);
+        }
+      });
+      
+      if (!valid) return;
+      
+      // Loading
+      document.getElementById('buttonContainer').classList.add('hidden');
+      document.getElementById('formLoading').classList.remove('hidden');
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          // Conversion Tracking
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17935774896/4mi1COPM5PMbELDpuOhC',
+            'value': 235000.0,
+            'currency': 'USD'
+          });
+          gtag('event', 'generate_lead', { 'currency': 'USD', 'value': 235000.0 });
+          
+          // Show success
+          document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+          document.querySelector('.form-step[data-step="success"]').classList.add('active');
+          document.getElementById('formLoading').classList.add('hidden');
+          document.getElementById('progressFill').style.width = '100%';
+          
+          // Redirect
+          setTimeout(() => {
+            window.location.href = '/expose.html?qualified=true';
+          }, 2500);
+          
+        } else {
+          throw new Error('Submit failed');
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('formLoading').classList.add('hidden');
+        document.getElementById('buttonContainer').classList.remove('hidden');
+        alert('Error submitting. Please try again.');
+      }
+    }
+    
+    // Lightbox
+    function openPreview(index) {
+      const images = [
+        '/assets/images/bedroom.webp',
+        '/assets/images/kitchen.webp',
+        '/assets/images/living.webp'
+      ];
+      document.getElementById('lightboxImg').src = images[index];
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').classList.add('flex');
+    }
+    
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+      document.getElementById('lightbox').classList.remove('flex');
+    }
+    
+    // Utilities
+    function shake(el) {
+      el.style.animation = 'shake 0.5s';
+      setTimeout(() => el.style.animation = '', 500);
+    }
+    
+    function startCountdown() {
+      const update = () => {
+        const now = new Date();
+        const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+        const diff = end - now;
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        document.getElementById('countdown').textContent = `Ends in ${h}h ${m}m`;
+      };
+      update();
+      setInterval(update, 60000);
+    }
+  </script>
+  
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  </style>
+</body>
+</html>
