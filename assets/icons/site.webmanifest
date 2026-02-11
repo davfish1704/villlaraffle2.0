@@ -1,0 +1,23 @@
+{
+  "name": "Canggu Loft Style Collection",
+  "short_name": "Canggu Loft",
+  "description": "Canggu Loft Style Collection",
+  "icons": [
+    {
+      "src": "https://cangguloftstylecollection.com/assets/icons/logo-square-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cangguloftstylecollection.com/assets/icons/logo-square-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "https://cangguloftstylecollection.com/"
+}
