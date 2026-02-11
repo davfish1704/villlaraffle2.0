@@ -24,7 +24,7 @@ body {
 .landing-container {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: calc(var(--header-height) + 0.5rem) 0.75rem 0.75rem;
+  padding: calc(var(--header-height) + 0.5rem) 0.5rem 0.5rem;
   overflow: clip;
   display: flex;
   flex-direction: column;
@@ -343,7 +343,7 @@ body {
 /* Desktop Adjustments */
 @media (min-width: 768px) {
   .form-card { max-height: 800px; }
-  .landing-container { justify-content: center; }
+  .landing-container { align-items: center; justify-content: center; }
   .form-body { overflow-y: auto; }
   .question-step h2 { text-align: left; }
 }
@@ -361,12 +361,5 @@ body {
 
   .radio-card {
     margin-bottom: 0.6rem;
-  }
-
-  .whatsapp-float {
-    width: 52px;
-    height: 52px;
-    right: 0.75rem;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 5.25rem);
   }
 }
