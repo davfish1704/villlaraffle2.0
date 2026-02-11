@@ -63,10 +63,10 @@
   </div>
 
   <!-- Main Container -->
-  <main class="landing-container pt-10">
+  <main class="landing-container">
     
     <!-- Form Card -->
-    <div class="form-card mx-4">
+    <div class="form-card">
       
       <!-- Header -->
       <div class="form-header">
@@ -106,7 +106,7 @@
           <input type="hidden" name="page_url" id="pageUrl">
           
           <!-- Step 1: Funds -->
-          <div class="form-step active" data-step="1">
+          <div class="form-step question-step active" data-step="1">
             <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">Do you have $235K ready to invest?</h2>
             
             <div class="radio-card" onclick="selectOption(this, 'funds', 'ready')">
@@ -126,7 +126,7 @@
           </div>
 
           <!-- Step 2: Timeline -->
-          <div class="form-step" data-step="2">
+          <div class="form-step question-step" data-step="2">
             <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">When do you want to close?</h2>
             
             <div class="radio-card" onclick="selectOption(this, 'timeline', 'this-week')">
@@ -154,7 +154,7 @@
           </div>
 
           <!-- Step 3: Contact -->
-          <div class="form-step" data-step="3">
+          <div class="form-step contact-step" data-step="3">
             <h2 class="font-serif text-lg sm:text-xl mb-3 text-stone-900">Your Contact Details</h2>
             
             <div class="input-group">
@@ -191,9 +191,9 @@
               </svg>
             </div>
             <h3 class="font-serif text-2xl text-stone-900 mb-2">Inquiry Received!</h3>
-            <p class="text-sm text-stone-600 mb-4">Redirecting to property details...</p>
-            <button type="button" onclick="window.location.href='/expose.html'" class="btn btn-primary text-sm">
-              Open Exposé Now
+            <p class="text-sm text-stone-600 mb-4">Redirecting to your thank-you page...</p>
+            <button type="button" onclick="window.location.href='/thank-you.html'" class="btn btn-primary text-sm">
+              Open Thank-you Page
             </button>
           </div>
 
@@ -242,6 +242,8 @@
     // State
     let currentStep = 1;
     const totalSteps = 3;
+    const STORAGE_KEY = 'loftLeadFormDraft';
+    const SUBMITTED_KEY = 'loftLeadFormSubmitted';
     const bgImages = [
       '/assets/images/hero-loft.webp',
       '/assets/images/step-2.webp', 
@@ -250,10 +252,17 @@
     
     // Init
     document.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem(SUBMITTED_KEY) === 'true') {
+        window.location.replace('/thank-you.html');
+        return;
+      }
+
       document.getElementById('pageUrl').value = window.location.href;
+      hydrateFormState();
       updateUI();
       startBgSlideshow();
       startCountdown();
+      attachDraftListeners();
       
       // Tracking
       document.querySelector('.whatsapp-float').addEventListener('click', () => {
@@ -280,10 +289,7 @@
       card.classList.add('selected');
       card.querySelector('input').checked = true;
       
-      // Auto-advance on mobile for better UX
-      if (window.innerWidth < 768 && currentStep < 3) {
-        setTimeout(() => nextStep(), 300);
-      }
+      persistFormState();
     }
     
     function nextStep() {
@@ -299,12 +305,14 @@
       }
       
       currentStep++;
+      persistFormState();
       updateUI();
     }
     
     function prevStep() {
       if (currentStep > 1) {
         currentStep--;
+        persistFormState();
         updateUI();
       }
     }
@@ -378,6 +386,9 @@
           });
           gtag('event', 'generate_lead', { 'currency': 'USD', 'value': 235000.0 });
           
+          sessionStorage.setItem(SUBMITTED_KEY, 'true');
+          persistFormState();
+
           // Show success
           document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
           document.querySelector('.form-step[data-step="success"]').classList.add('active');
@@ -386,7 +397,7 @@
           
           // Redirect
           setTimeout(() => {
-            window.location.href = '/expose.html?qualified=true';
+            window.location.replace('/thank-you.html');
           }, 2500);
           
         } else {
@@ -397,6 +408,61 @@
         document.getElementById('formLoading').classList.add('hidden');
         document.getElementById('buttonContainer').classList.remove('hidden');
         alert('Error submitting. Please try again.');
+      }
+    }
+
+    function attachDraftListeners() {
+      const form = document.getElementById('leadForm');
+      form.querySelectorAll('input, select').forEach((el) => {
+        el.addEventListener('input', persistFormState);
+        el.addEventListener('change', persistFormState);
+      });
+    }
+
+    function persistFormState() {
+      const form = document.getElementById('leadForm');
+      const data = {
+        currentStep,
+        fields: {
+          funds_status: form.elements.funds_status?.value || '',
+          timeline: form.elements.timeline?.value || '',
+          fullname: form.elements.fullname?.value || '',
+          email: form.elements.email?.value || '',
+          whatsapp: form.elements.whatsapp?.value || '',
+          payment_method: form.elements.payment_method?.value || ''
+        }
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function hydrateFormState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+
+      const form = document.getElementById('leadForm');
+
+      try {
+        const draft = JSON.parse(raw);
+        const fields = draft.fields || {};
+        Object.entries(fields).forEach(([name, value]) => {
+          if (!value || !form.elements[name]) return;
+
+          if (name === 'funds_status' || name === 'timeline') {
+            const radio = form.querySelector(`input[name="${name}"][value="${value}"]`);
+            if (radio) {
+              radio.checked = true;
+              radio.closest('.radio-card')?.classList.add('selected');
+            }
+          } else {
+            form.elements[name].value = value;
+          }
+        });
+
+        if (typeof draft.currentStep === 'number' && draft.currentStep >= 1 && draft.currentStep <= totalSteps) {
+          currentStep = draft.currentStep;
+        }
+      } catch (error) {
+        console.warn('Could not restore draft state', error);
       }
     }
     
