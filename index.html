@@ -52,36 +52,41 @@
     .hamburger span{display:block;width:22px;height:1px;background:var(--gold)}
 
     /* ═══════════════════════════════════
-       HERO — SPLIT: left photo, right video
+       HERO — FULL WIDTH + VIDEO OVERLAY
     ═══════════════════════════════════ */
     #hero{
       position:relative;
       height:100vh;
       min-height:640px;
-      display:grid;
-      grid-template-columns:70% 30%;
       overflow:hidden;
+      display:flex;
+      align-items:flex-end;
     }
 
-    .hero-left{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:0 56px 72px;
+    /* Full-width background image */
+    .hero-bg{
+      position:absolute;
+      inset:0;
       background-color:var(--surface);
       background-image:url('img/hero.jpg');
       background-size:cover;
       background-position:center;
-      height:100%;
+      z-index:0;
     }
-    .hero-left::after{
+    .hero-bg::after{
       content:'';
       position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(9,9,9,.88) 0%,rgba(9,9,9,.3) 50%,rgba(9,9,9,.05) 100%);
-      pointer-events:none;
+      background:linear-gradient(to top,rgba(9,9,9,.92) 0%,rgba(9,9,9,.45) 45%,rgba(9,9,9,.1) 100%);
     }
-    .hero-left-content{position:relative;z-index:2}
+
+    /* Text content — left side, above bg */
+    .hero-left{
+      position:relative;
+      z-index:2;
+      padding:0 60px 72px;
+      max-width:620px;
+    }
+    .hero-left-content{}
 
     .hero-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
     .hero-tag::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold)}
@@ -90,38 +95,68 @@
     .hero-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text);margin-bottom:40px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
-    /* Right panel: video */
-    .hero-right{
-      position:relative;
-      background:var(--black);
-      border-left:1px solid rgba(201,168,76,.18);
-      overflow:hidden;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero-right video{
+    /* ── VIDEO OVERLAY — absolutely positioned on hero, right-center ── */
+    .hero-video-overlay{
       position:absolute;
+      right:5%;
       top:50%;
-      left:50%;
-      /* portrait video shot vertically — rotate to landscape */
-      transform:translate(-50%, -50%) rotate(90deg) scale(1.78);
+      transform:translateY(-50%);
+      z-index:3;
+      width:32%;
+      max-width:480px;
+      min-width:260px;
+    }
+
+    /* 16:9 aspect ratio wrapper */
+    .hero-video-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 24px 64px rgba(0,0,0,.7), 0 0 0 1px rgba(201,168,76,.25);
+    }
+
+    .hero-video-frame video{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
+      /* portrait video — rotate to landscape */
+      transform:rotate(90deg) scale(1.78);
+      transform-origin:center center;
     }
-    .hero-right::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
-    .hero-right::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
-    .video-label{position:absolute;bottom:18px;left:18px;z-index:3;font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.7);background:rgba(0,0,0,.55);padding:5px 12px}
+
+    /* gold top/bottom accent lines */
+    .hero-video-frame::before{
+      content:'';
+      position:absolute;top:0;left:0;right:0;height:2px;
+      background:var(--gold);z-index:2;
+    }
+    .hero-video-frame::after{
+      content:'';
+      position:absolute;bottom:0;left:0;right:0;height:2px;
+      background:var(--gold);z-index:2;
+    }
+
+    /* label + sound button below frame */
+    .video-meta{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:10px;padding:0 2px;
+    }
+    .video-label{
+      font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;
+      text-transform:uppercase;color:rgba(201,168,76,.6);
+    }
     .video-sound-btn{
-      position:absolute;top:16px;right:16px;z-index:4;
-      background:rgba(0,0,0,.6);border:1px solid rgba(201,168,76,.4);
-      color:var(--gold);cursor:pointer;padding:8px 12px;
-      font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-      display:flex;align-items:center;gap:6px;transition:background .2s,border-color .2s;
+      background:rgba(0,0,0,.5);border:1px solid rgba(201,168,76,.3);
+      color:var(--gold);cursor:pointer;padding:5px 10px;
+      font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+      display:flex;align-items:center;gap:5px;transition:background .2s,border-color .2s;
+      border-radius:2px;
     }
-    .video-sound-btn:hover{background:rgba(201,168,76,.15);border-color:var(--gold)}
+    .video-sound-btn:hover{background:rgba(201,168,76,.12);border-color:var(--gold)}
 
     .scroll-hint{position:absolute;bottom:24px;right:22px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
     .scroll-hint span{font-family:var(--font-mono);font-size:9px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;writing-mode:vertical-rl}
@@ -282,8 +317,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
-      #hero{grid-template-columns:1fr}
-      .hero-right{display:none}
+      .hero-video-overlay{width:38%;right:3%}
       .invest-grid{grid-template-columns:1fr}
       .calculator{position:static}
       .feature-grid{grid-template-columns:repeat(2,1fr)}
@@ -294,7 +328,16 @@
       nav{padding:0 18px}
       .nav-links,.nav-cta{display:none}
       .hamburger{display:flex}
-      .hero-left{padding:0 22px 72px}
+      /* on mobile: hero is taller, video moves below text */
+      #hero{align-items:flex-start;flex-direction:column;height:auto;min-height:100svh;padding-top:64px}
+      .hero-left{padding:40px 22px 32px;max-width:100%}
+      .hero-video-overlay{
+        position:relative;
+        right:auto;top:auto;transform:none;
+        width:calc(100% - 44px);
+        max-width:100%;
+        margin:0 22px 40px;
+      }
       section{padding:64px 22px}
       footer{padding:28px 22px}
       .gallery-grid{grid-template-columns:1fr}
@@ -335,10 +378,13 @@
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ═══ HERO — SPLIT ═══ -->
+<!-- ═══ HERO — FULL WIDTH + VIDEO OVERLAY ═══ -->
 <section id="hero">
 
-  <!-- LEFT: photo + text -->
+  <!-- Full-width background -->
+  <div class="hero-bg"></div>
+
+  <!-- Text — bottom left -->
   <div class="hero-left">
     <div class="hero-left-content fade-up">
       <div class="hero-tag">Padonan · Canggu · Bali · Direct Owner Sale</div>
@@ -358,18 +404,22 @@
     <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
   </div>
 
-  <!-- RIGHT: embedded video (30% width, 16:9, click to unmute) -->
-  <div class="hero-right">
-    <video id="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="video/intro.webm" type="video/webm" />
-      <source src="video/intro.mp4" type="video/mp4" />
-    </video>
-    <button class="video-sound-btn" id="sound-btn" onclick="toggleSound()">
-      <svg id="sound-icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-      <svg id="sound-icon-on" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
-      <span id="sound-label">Sound</span>
-    </button>
-    <div class="video-label">Property Walkthrough</div>
+  <!-- Video — absolutely positioned overlay, right-center -->
+  <div class="hero-video-overlay">
+    <div class="hero-video-frame">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="video/intro.webm" type="video/webm" />
+        <source src="video/intro.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="video-meta">
+      <span class="video-label">Property Walkthrough</span>
+      <button class="video-sound-btn" id="sound-btn" onclick="toggleSound()">
+        <svg id="sound-icon-muted" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg id="sound-icon-on" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <span id="sound-label">Sound</span>
+      </button>
+    </div>
   </div>
 
 </section>
