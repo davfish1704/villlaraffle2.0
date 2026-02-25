@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://cangguloftstylecollection.com" />
   <meta property="og:title" content="The Last Loft in Canggu — $230k Direct Sale" />
   <meta property="og:description" content="2BR industrial designer loft. European build. 13–15% gross yield. Crypto accepted. Direct owner." />
-  <meta property="og:image" content="public/img/og.jpg" />
+  <meta property="og:image" content="img/og.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cangguloftstylecollection.com" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -70,7 +70,7 @@
       justify-content:flex-end;
       padding:0 56px 72px;
       background-color:var(--surface);
-      background-image:url('public/img/hero.jpg');
+      background-image:url('img/hero.jpg');
       background-size:cover;
       background-position:center;
       height:100%;
@@ -361,8 +361,8 @@
   <!-- RIGHT: embedded video (30% width, 16:9, click to unmute) -->
   <div class="hero-right">
     <video id="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="public/video/intro.webm" type="video/webm" />
-      <source src="public/video/intro.mp4" type="video/mp4" />
+      <source src="video/intro.webm" type="video/webm" />
+      <source src="video/intro.mp4" type="video/mp4" />
     </video>
     <button class="video-sound-btn" id="sound-btn" onclick="toggleSound()">
       <svg id="sound-icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -418,22 +418,22 @@
 
   <!--
     GALLERY: 9 cells, all 16:9 landscape, all same size, 3 columns
-    NEW FILES NEEDED in public/img/:
+    NEW FILES NEEDED in img/:
       dining.jpg  (dining table)
       bar.jpg     (bar area)
       lounge.jpg  (lounge area)
     EXISTING: livingroom, kitchen, bedroom-master, bedroom-second, bathroom, hero
   -->
   <div class="gallery-grid fade-up">
-    <div class="g-cell" style="background-image:url('public/img/livingroom.jpg')" onclick="openLightbox(0)"><div class="g-label">Living Room</div></div>
-    <div class="g-cell" style="background-image:url('public/img/kitchen.jpg')" onclick="openLightbox(1)"><div class="g-label">Kitchen</div></div>
-    <div class="g-cell" style="background-image:url('public/img/dining.jpg')" onclick="openLightbox(2)"><div class="g-label">Dining Table</div></div>
-    <div class="g-cell" style="background-image:url('public/img/bedroom-master.jpg')" onclick="openLightbox(3)"><div class="g-label">Master Bedroom</div></div>
-    <div class="g-cell" style="background-image:url('public/img/bedroom-second.jpg')" onclick="openLightbox(4)"><div class="g-label">Second Bedroom</div></div>
-    <div class="g-cell" style="background-image:url('public/img/bathroom.jpg')" onclick="openLightbox(5)"><div class="g-label">Bathroom</div></div>
-    <div class="g-cell" style="background-image:url('public/img/bar.jpg')" onclick="openLightbox(6)"><div class="g-label">Bar</div></div>
-    <div class="g-cell" style="background-image:url('public/img/lounge.jpg')" onclick="openLightbox(7)"><div class="g-label">Lounge</div></div>
-    <div class="g-cell" style="background-image:url('public/img/gallery-dining.jpg')" onclick="openLightbox(8)"><div class="g-label">Detail</div></div>
+    <div class="g-cell" style="background-image:url('img/livingroom.jpg')" onclick="openLightbox(0)"><div class="g-label">Living Room</div></div>
+    <div class="g-cell" style="background-image:url('img/kitchen.jpg')" onclick="openLightbox(1)"><div class="g-label">Kitchen</div></div>
+    <div class="g-cell" style="background-image:url('img/dining.jpg')" onclick="openLightbox(2)"><div class="g-label">Dining Table</div></div>
+    <div class="g-cell" style="background-image:url('img/bedroom-master.jpg')" onclick="openLightbox(3)"><div class="g-label">Master Bedroom</div></div>
+    <div class="g-cell" style="background-image:url('img/bedroom-second.jpg')" onclick="openLightbox(4)"><div class="g-label">Second Bedroom</div></div>
+    <div class="g-cell" style="background-image:url('img/bathroom.jpg')" onclick="openLightbox(5)"><div class="g-label">Bathroom</div></div>
+    <div class="g-cell" style="background-image:url('img/bar.jpg')" onclick="openLightbox(6)"><div class="g-label">Bar</div></div>
+    <div class="g-cell" style="background-image:url('img/lounge.jpg')" onclick="openLightbox(7)"><div class="g-label">Lounge</div></div>
+    <div class="g-cell" style="background-image:url('img/gallery-dining.jpg')" onclick="openLightbox(8)"><div class="g-label">Detail</div></div>
   </div>
 
   <div class="feature-grid fade-up">
@@ -667,15 +667,15 @@ function toggleSound(){
 
 // LIGHTBOX
 const galleryImages=[
-  {src:'public/img/livingroom.jpg',label:'Living Room'},
-  {src:'public/img/kitchen.jpg',label:'Kitchen'},
-  {src:'public/img/dining.jpg',label:'Dining Table'},
-  {src:'public/img/bedroom-master.jpg',label:'Master Bedroom'},
-  {src:'public/img/bedroom-second.jpg',label:'Second Bedroom'},
-  {src:'public/img/bathroom.jpg',label:'Bathroom'},
-  {src:'public/img/bar.jpg',label:'Bar'},
-  {src:'public/img/lounge.jpg',label:'Lounge'},
-  {src:'public/img/gallery-dining.jpg',label:'Detail'},
+  {src:'img/livingroom.jpg',label:'Living Room'},
+  {src:'img/kitchen.jpg',label:'Kitchen'},
+  {src:'img/dining.jpg',label:'Dining Table'},
+  {src:'img/bedroom-master.jpg',label:'Master Bedroom'},
+  {src:'img/bedroom-second.jpg',label:'Second Bedroom'},
+  {src:'img/bathroom.jpg',label:'Bathroom'},
+  {src:'img/bar.jpg',label:'Bar'},
+  {src:'img/lounge.jpg',label:'Lounge'},
+  {src:'img/gallery-dining.jpg',label:'Detail'},
 ];
 let curLB=0;
 function openLightbox(i){curLB=i;document.getElementById('lightbox-img').src=galleryImages[i].src;document.getElementById('lightbox-caption').textContent=galleryImages[i].label;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
