@@ -54,7 +54,7 @@
     /* ═══════════════════════════════════
        HERO — SPLIT: left photo, right video
     ═══════════════════════════════════ */
-    #hero{position:relative;height:100vh;min-height:640px;display:grid;grid-template-columns:56% 44%;overflow:hidden}
+    #hero{position:relative;height:100vh;min-height:640px;display:grid;grid-template-columns:70% 30%;overflow:hidden}
 
     .hero-left{
       position:relative;display:flex;flex-direction:column;justify-content:flex-end;
@@ -79,6 +79,15 @@
     .hero-right::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
     .hero-right::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
     .video-label{position:absolute;bottom:18px;left:18px;z-index:3;font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.7);background:rgba(0,0,0,.55);padding:5px 12px}
+    /* sound toggle button */
+    .video-sound-btn{
+      position:absolute;top:16px;right:16px;z-index:4;
+      background:rgba(0,0,0,.6);border:1px solid rgba(201,168,76,.4);
+      color:var(--gold);cursor:pointer;padding:8px 12px;
+      font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+      display:flex;align-items:center;gap:6px;transition:background .2s,border-color .2s;
+    }
+    .video-sound-btn:hover{background:rgba(201,168,76,.15);border-color:var(--gold)}
 
     .scroll-hint{position:absolute;bottom:24px;right:22px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px}
     .scroll-hint span{font-family:var(--font-mono);font-size:9px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;writing-mode:vertical-rl}
@@ -315,12 +324,17 @@
     <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
   </div>
 
-  <!-- RIGHT: embedded video (loops silently) -->
+  <!-- RIGHT: embedded video (30% width, 16:9, click to unmute) -->
   <div class="hero-right">
-    <video autoplay muted loop playsinline preload="auto">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto">
       <source src="public/video/intro.webm" type="video/webm" />
       <source src="public/video/intro.mp4" type="video/mp4" />
     </video>
+    <button class="video-sound-btn" id="sound-btn" onclick="toggleSound()">
+      <svg id="sound-icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      <svg id="sound-icon-on" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+      <span id="sound-label">Sound</span>
+    </button>
     <div class="video-label">Property Walkthrough</div>
   </div>
 
@@ -603,6 +617,20 @@
 </div>
 
 <script>
+// SOUND TOGGLE
+function toggleSound(){
+  const v=document.getElementById('hero-video');
+  const muted=!v.muted;
+  // if unmuting, restart from beginning for better experience
+  if(!muted){ v.currentTime=0; v.loop=false; }
+  else { v.loop=true; }
+  v.muted=muted;
+  document.getElementById('sound-icon-muted').style.display=muted?'block':'none';
+  document.getElementById('sound-icon-on').style.display=muted?'none':'block';
+  document.getElementById('sound-label').textContent=muted?'Sound':'Mute';
+  if(typeof gtag!=='undefined')gtag('event','video_sound_toggle',{muted});
+}
+
 // LIGHTBOX
 const galleryImages=[
   {src:'public/img/livingroom.jpg',label:'Living Room'},
