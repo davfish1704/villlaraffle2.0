@@ -1,0 +1,3 @@
+REPLACE THIS FILE with your actual walkthrough video.
+Filename must be: intro.mp4
+Max recommended size: 15MB (compress with handbrake.fr)
