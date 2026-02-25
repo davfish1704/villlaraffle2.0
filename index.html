@@ -73,12 +73,12 @@
     .hero-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text);margin-bottom:40px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
-    /* Overlay video on hero photo (landscape, right-middle, ~34% coverage) */
+    /* Overlay video on hero photo (landscape, left-middle, ~30% coverage) */
     .hero-right{
       position:absolute;
-      top:50%;right:clamp(22px,6vw,92px);
+      top:50%;left:clamp(22px,6vw,92px);
       transform:translateY(-50%);
-      width:clamp(380px,34vw,680px);
+      width:clamp(320px,30vw,560px);
       aspect-ratio:16/9;
       background:var(--black);
       border:1px solid rgba(201,168,76,.3);
@@ -259,7 +259,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
-      .hero-right{width:clamp(320px,40vw,540px)}
+      .hero-right{width:clamp(280px,36vw,420px)}
       .invest-grid{grid-template-columns:1fr}
       .calculator{position:static}
       .feature-grid{grid-template-columns:repeat(2,1fr)}
