@@ -54,7 +54,7 @@
     /* ═══════════════════════════════════
        HERO — SPLIT: left photo, right video
     ═══════════════════════════════════ */
-    #hero{position:relative;height:100vh;min-height:640px;display:grid;grid-template-columns:70% 30%;overflow:hidden}
+    #hero{position:relative;height:100vh;min-height:640px;overflow:hidden}
 
     .hero-left{
       position:relative;display:flex;flex-direction:column;justify-content:flex-end;
@@ -73,8 +73,19 @@
     .hero-sub{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text);margin-bottom:40px}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
-    /* Right panel: video */
-    .hero-right{position:relative;background:var(--black);border-left:1px solid rgba(201,168,76,.18);overflow:hidden}
+    /* Overlay video on hero photo (landscape, right-middle, ~34% coverage) */
+    .hero-right{
+      position:absolute;
+      top:50%;right:clamp(22px,6vw,92px);
+      transform:translateY(-50%);
+      width:clamp(380px,34vw,680px);
+      aspect-ratio:16/9;
+      background:var(--black);
+      border:1px solid rgba(201,168,76,.3);
+      overflow:hidden;
+      z-index:4;
+      box-shadow:0 18px 45px rgba(0,0,0,.45);
+    }
     .hero-right video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .hero-right::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
     .hero-right::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);z-index:2}
@@ -248,8 +259,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
-      #hero{grid-template-columns:1fr}
-      .hero-right{display:none}
+      .hero-right{width:clamp(320px,40vw,540px)}
       .invest-grid{grid-template-columns:1fr}
       .calculator{position:static}
       .feature-grid{grid-template-columns:repeat(2,1fr)}
@@ -261,6 +271,7 @@
       .nav-links,.nav-cta{display:none}
       .hamburger{display:flex}
       .hero-left{padding:0 22px 72px}
+      .hero-right{display:none}
       section{padding:64px 22px}
       footer{padding:28px 22px}
       .gallery-grid{grid-template-columns:1fr}
